@@ -71,7 +71,7 @@ Chosen mockup: **#11 "Career OS"** (`docs/redesign/mockups/CareerOS.dc.html`), o
    - **Now:** Customer Success Manager, municipal SaaS: customer calls in, specs and tickets out.
    - **Next:** PM / APM role, linking to the contact section.
    Cards with a case study link to it; the rest link to the live site or GitHub.
-5. **Shipped from my specs** (`$ tickets --author yash --status shipped`): from Yash's inventory of tickets and the features shipped from them. Three number tiles (tickets written, features shipped, client accounts) and a table: customer problem, what was specced, when it shipped, status. Details anonymised as needed (see section 12).
+5. **Shipped from my specs** (`$ tickets --author yash --status shipped`): from Yash's inventory of tickets and the features shipped from them. Three number tiles (tickets written, features shipped, client accounts) and a table: customer problem, what was specced, when it shipped, status. Shown as totals plus 4–6 anonymised examples in general terms: no client names, ticket IDs or internal details.
 6. **Timeline** (`$ roadmap --view timeline`): quarterly bars for the CS job and each project. Scrolls sideways on phones. Dates marked `[confirm dates]` until confirmed.
 7. **Release notes** (`$ git log --oneline career`): versioned career milestones, newest first.
 8. **Contact footer** (`$ roadmap --next`): "Next milestone: Product Manager at your company." Email, resume, GitHub, LinkedIn.
