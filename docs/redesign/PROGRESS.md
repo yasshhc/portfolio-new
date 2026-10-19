@@ -7,8 +7,11 @@ Read this first when picking the redesign back up in a new session.
 - Process: brainstorming (questions → mockups → spec → plan → build).
 - **Done:** goal, audience, evidence, three rounds of mockups.
 - **Chosen direction:** mockup #11 "Career OS" (`mockups/CareerOS.dc.html`). Tweaks expected as we go.
-- **Spec written:** `docs/superpowers/specs/2026-10-19-portfolio-career-os-design.md` (waiting for Yash's review).
-- **Next step:** after spec approval, write the implementation plan, then build. Launch first on a private Vercel preview link, iterate, then move to yashchanne.com. No product code has been written yet.
+- **Spec written:** `docs/superpowers/specs/2026-10-19-portfolio-career-os-design.md` (approved).
+- **Spec approved.** Plan written: `docs/superpowers/plans/2026-10-19-portfolio-career-os.md` (8 tasks).
+- **Execution method chosen: Native** (superpowers:executing-plans: one session builds all tasks, then one fresh reviewer checks the whole branch).
+- **Next step:** build Task 1 onward on branch `claude/wizardly-mendel-w7okf9`. Launch first on a private Vercel preview link, iterate, then move to yashchanne.com.
+- Yash is preparing a Markdown export of the Asana/Jira tickets they authored; use the top ones for "Shipped from my specs" (anonymised).
 
 Mockup canvas (private to Yash): https://claude.ai/artifact/XFwKGBFWzVfA7MoKxf7J5X
 The `.dc.html` files here are copies of the canvas artboards. They need the canvas runtime to render, so treat them as reference for layout, colours and copy.
