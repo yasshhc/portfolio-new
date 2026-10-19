@@ -7,7 +7,8 @@ Read this first when picking the redesign back up in a new session.
 - Process: brainstorming (questions → mockups → spec → plan → build).
 - **Done:** goal, audience, evidence, three rounds of mockups.
 - **Chosen direction:** mockup #11 "Career OS" (`mockups/CareerOS.dc.html`). Tweaks expected as we go.
-- **Next step:** a few remaining questions (case-study pages, hosting), then write the spec in `docs/superpowers/specs/`, then the implementation plan. No product code has been written yet.
+- **Spec written:** `docs/superpowers/specs/2026-10-19-portfolio-career-os-design.md` (waiting for Yash's review).
+- **Next step:** after spec approval, write the implementation plan, then build. Launch first on a private Vercel preview link, iterate, then move to yashchanne.com. No product code has been written yet.
 
 Mockup canvas (private to Yash): https://claude.ai/artifact/XFwKGBFWzVfA7MoKxf7J5X
 The `.dc.html` files here are copies of the canvas artboards. They need the canvas runtime to render, so treat them as reference for layout, colours and copy.
@@ -42,9 +43,10 @@ The `.dc.html` files here are copies of the canvas artboards. They need the canv
 | Reddit Pain-Point Miner | yasshhc/reddit-pain-point-miner | Notice | Discovery tool |
 | Coverage-nav | yasshhc/vehicle-optimization | Decide | Paused on purpose |
 | CRS Calculator | yasshhc/crs-calculator | Build | Live at crscal.yashchanne.com |
+| Bill Splitter | yasshhc/bill-splitter-next | Build | Live at billsplitter.yashchanne.com |
 | Vitals | yasshhc/Whoop | Measure | Personal product, 73 tests |
 
-Not yet reviewed: `hittheroad-concept` (no README), `bill-splitter-next`, older repos.
+Not yet reviewed: `hittheroad-concept` (no README), older repos. Bill Splitter's README is the Next.js default, so its story must come from Yash.
 
 ## Still needed from Yash
 
@@ -54,11 +56,11 @@ Not yet reviewed: `hittheroad-concept` (no README), `bill-splitter-next`, older 
 - One real client quote that changed what got built (optional)
 - OK to name the employer (Citylogix) on the site?
 
-## Open questions
+## Answered questions
 
-- Case-study pages: one page per project, or homepage only?
-- Hosting: `yashchanne.com` (already owned) vs GitHub Pages
-- Rebuild in this repo (Vite + React + Tailwind) or start fresh
+- Depth: homepage + 3 case studies (CSM Assistant, CRS Calculator, Bill Splitter)
+- Hosting: Vercel, private preview link first, then yashchanne.com
+- Stack: Next.js + Tailwind + TypeScript, rebuilt in this repo
 
 ## Known issues in the current site
 
