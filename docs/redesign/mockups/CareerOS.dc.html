@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Career OS portfolio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=Work+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#F1F4EF}
+a{color:#2F6B4F}a:hover{color:#1F4A36}
+</style>
+</helmet>
+<div style="font-family: 'Work Sans', system-ui, sans-serif; color: #1B2421; background: #F1F4EF; min-height: 100vh">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 0 24px 64px">
+
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 0; font-family: 'JetBrains Mono', monospace; font-size: 14px">
+      <a href="#top" style="color: #1B2421; text-decoration: none; font-weight: 700">~/yash-channe</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px">
+        <a href="#board" style="color: #44514C; text-decoration: none">roadmap</a>
+        <a href="#timeline" style="color: #44514C; text-decoration: none">timeline</a>
+        <a href="#log" style="color: #44514C; text-decoration: none">log</a>
+        <a href="#contact" style="color: #44514C; text-decoration: none">contact</a>
+      </div>
+    </nav>
+
+    <header id="top" style="padding: 72px 0 48px; display: flex; flex-direction: column; gap: 20px">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #2F6B4F">$ whoami</span>
+      <h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(44px, 6vw, 80px); letter-spacing: -0.035em; line-height: 1.02; max-width: 16ch">My career, managed like a product.</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #44514C; max-width: 58ch">Customer Success Manager for municipal software. Five side products, each built from a real customer problem. Next milestone: a Product Manager or APM role.</p>
+      <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #1B2421; background: #D9F99D; padding: 6px 12px; border-radius: 999px">● status: open to PM / APM roles</span>
+    </header>
+
+    <div role="search" style="background: #1B2421; border-radius: 16px; overflow: hidden">
+      <label style="display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-bottom: 1px solid #2F3B37">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9FB0A8" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Jump to</span>
+        <input type="text" placeholder="Jump to a product, the resume, or contact…" style="flex: 1; background: transparent; border: 0; outline: none; color: #F1F4EF; font-size: 17px; font-family: inherit">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9FB0A8; border: 1px solid #3B4A45; border-radius: 6px; padding: 2px 8px">⌘K</span>
+      </label>
+      <div style="padding: 8px">
+        <sc-for list="{{cmds}}" as="c" hint-placeholder-count="4">
+          <a href="{{c.href}}" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px; border-radius: 10px; color: #F1F4EF; text-decoration: none; background: {{c.bg}}">
+            <span style="display: flex; flex-direction: column; gap: 2px">
+              <span style="font-weight: 600">{{c.title}}</span>
+              <span style="font-size: 14px; color: #B5C3BC">{{c.sub}}</span>
+            </span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D9F99D">{{c.kind}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+    <section id="board" aria-labelledby="board-h" style="padding-top: 80px">
+      <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #2F6B4F">$ roadmap --view board</p>
+      <h2 id="board-h" style="margin: 0 0 24px; font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em">Roadmap</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+        <sc-for list="{{lanes}}" as="lane" hint-placeholder-count="4">
+          <div style="flex: 1 1 240px; background: #E4ECE6; border-radius: 18px; padding: 12px; display: flex; flex-direction: column; gap: 10px">
+            <span style="display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px">
+              <span style="display: flex; align-items: center; gap: 8px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 50%; background: {{lane.dot}}"></span>{{lane.name}}</span>
+              <span style="color: #44514C">{{lane.count}}</span>
+            </span>
+            <sc-for list="{{lane.items}}" as="it" hint-placeholder-count="2">
+              <a href="{{it.href}}" style="background: {{it.bg}}; color: {{it.fg}}; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px; text-decoration: none">
+                <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.15">{{it.title}}</span>
+                <span style="font-size: 14px; line-height: 1.5; opacity: 0.85">{{it.line}}</span>
+                <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 3px 8px; border-radius: 6px; background: {{it.tagBg}}">{{it.tag}}</span>
+              </a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="timeline" aria-labelledby="tl-h" style="padding-top: 80px">
+      <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #2F6B4F">$ roadmap --view timeline --year 2026</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 24px">
+        <h2 id="tl-h" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em">Timeline</h2>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #44514C">[confirm dates]</span>
+      </div>
+      <div style="overflow-x: auto; background: #FFFFFF; border-radius: 18px">
+        <div style="min-width: 760px; padding: 24px; display: grid; grid-template-columns: 180px repeat(4, minmax(0, 1fr)); row-gap: 12px">
+          <span></span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #44514C; padding: 0 8px">Q1</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #44514C; padding: 0 8px">Q2</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #44514C; padding: 0 8px">Q3</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #44514C; padding: 0 8px">Q4</span>
+          <sc-for list="{{bars}}" as="b" hint-placeholder-count="6">
+            <span style="grid-column: 1 / 2; font-size: 14px; font-weight: 600; display: flex; align-items: center">{{b.name}}</span>
+            <span style="grid-column: {{b.col}}; background: {{b.bg}}; color: {{b.fg}}; border-radius: 8px; padding: 10px 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; margin: 0 4px">{{b.label}}</span>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="log" aria-labelledby="log-h" style="padding-top: 80px">
+      <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #2F6B4F">$ git log --oneline career</p>
+      <h2 id="log-h" style="margin: 0 0 24px; font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em">Release notes</h2>
+      <ol style="list-style: none; margin: 0; padding: 24px; background: #1B2421; border-radius: 16px; display: flex; flex-direction: column; gap: 14px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.5">
+        <sc-for list="{{log}}" as="l" hint-placeholder-count="5">
+          <li style="display: flex; flex-wrap: wrap; gap: 4px 14px">
+            <span style="color: #D9F99D">{{l.hash}}</span>
+            <span style="color: #F1F4EF">{{l.msg}}</span>
+          </li>
+        </sc-for>
+      </ol>
+    </section>
+
+    <footer id="contact" style="margin-top: 80px; background: #D9F99D; border-radius: 24px; padding: clamp(32px, 5vw, 56px); display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #1B2421">$ roadmap --next</p>
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4.6vw, 56px); font-weight: 700; letter-spacing: -0.03em; max-width: 20ch">Next milestone: Product Manager at your company.</h2>
+      <div id="resume" style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px">
+        <a href="mailto:you@example.com" style="background: #1B2421; color: #F1F4EF; padding: 14px 22px; border-radius: 999px; text-decoration: none; font-weight: 600">[your email]</a>
+        <a href="#resume" style="border: 1.5px solid #1B2421; color: #1B2421; padding: 14px 22px; border-radius: 999px; text-decoration: none; font-weight: 600">resume.pdf</a>
+        <a href="https://github.com/yasshhc" style="border: 1.5px solid #1B2421; color: #1B2421; padding: 14px 22px; border-radius: 999px; text-decoration: none; font-weight: 600">github</a>
+        <a href="https://linkedin.com/in/" style="border: 1.5px solid #1B2421; color: #1B2421; padding: 14px 22px; border-radius: 999px; text-decoration: none; font-weight: 600">linkedin</a>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var white = { bg: '#FFFFFF', fg: '#1B2421', tagBg: '#E4ECE6' };
+    var dark = { bg: '#1B2421', fg: '#F1F4EF', tagBg: '#2F3B37' };
+    var item = function (o, look) { return Object.assign({ href: '#case' }, o, look); };
+    return {
+      cmds: [
+        { title: 'CSM Assistant', sub: 'Featured case study: client calls to churn signals', kind: 'case study', href: '#case', bg: '#2A3632' },
+        { title: 'CRS Calculator', sub: 'Live product · crscal.yashchanne.com', kind: 'live', href: 'https://crscal.yashchanne.com', bg: 'transparent' },
+        { title: 'Download resume', sub: 'PDF', kind: 'file', href: '#resume', bg: 'transparent' },
+        { title: 'Email Yash', sub: '[your email]', kind: 'contact', href: '#contact', bg: 'transparent' }
+      ],
+      lanes: [
+        { name: 'shipped', dot: '#2F6B4F', count: '4', items: [
+          item({ title: 'CRS Calculator', line: 'Express Entry scores, today’s rules vs Nov 2026.', tag: 'live' }, white),
+          item({ title: 'CSM Assistant', line: 'Calls in; follow-ups, tasks, pain points, churn signals out.', tag: 'in daily use' }, white),
+          item({ title: 'Pain-Point Miner', line: 'Ranks opportunities from real Reddit complaints.', tag: 'discovery' }, white),
+          item({ title: 'Vitals', line: 'WHOOP-style scores, every formula visible.', tag: 'personal' }, white)
+        ] },
+        { name: 'paused', dot: '#C2410C', count: '1', items: [
+          item({ title: 'Coverage-nav', line: 'Built the useful foundation, then stopped while the build-or-not decision was open.', tag: 'on purpose' }, white)
+        ] },
+        { name: 'now', dot: '#1B2421', count: '1', items: [
+          item({ title: 'Customer Success Manager', line: 'Municipal SaaS, [N] client accounts.', tag: 'day job' }, white)
+        ] },
+        { name: 'next', dot: '#65A30D', count: '1', items: [
+          item({ title: 'PM / APM role', line: 'Where customer insight drives the roadmap.', tag: 'your team?', href: '#contact' }, dark)
+        ] }
+      ],
+      bars: [
+        { name: 'Customer Success', col: '2 / 6', label: 'CSM, municipal SaaS (ongoing)', bg: '#1B2421', fg: '#F1F4EF' },
+        { name: 'CSM Assistant', col: '2 / 3', label: 'built', bg: '#D9F99D', fg: '#1B2421' },
+        { name: 'Pain-Point Miner', col: '3 / 4', label: 'built', bg: '#D9F99D', fg: '#1B2421' },
+        { name: 'Vitals', col: '4 / 5', label: 'built', bg: '#D9F99D', fg: '#1B2421' },
+        { name: 'Coverage-nav', col: '4 / 5', label: 'paused', bg: '#FFEDD5', fg: '#7C2D12' },
+        { name: 'CRS Calculator', col: '5 / 6', label: 'shipped live', bg: '#2F6B4F', fg: '#FFFFFF' }
+      ],
+      log: [
+        { hash: 'v5.0', msg: 'ship: CRS Calculator live at crscal.yashchanne.com' },
+        { hash: 'v4.1', msg: 'decide: pause Coverage-nav solver, document the open question' },
+        { hash: 'v4.0', msg: 'measure: Vitals, transparent health scores from Apple Watch data' },
+        { hash: 'v3.0', msg: 'notice: Pain-Point Miner, ranking problems people would pay to fix' },
+        { hash: 'v2.0', msg: 'listen: CSM Assistant, built for my own client calls' },
+        { hash: 'v1.0', msg: 'init: Customer Success Manager, municipal SaaS [year]' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

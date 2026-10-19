@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dark timeline portfolio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=Geist+Mono:wght@400;500&amp;family=Geist:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0B1020}
+a{color:#5EEAD4}a:hover{color:#99F6E4}
+</style>
+</helmet>
+<div style="font-family: 'Geist', system-ui, sans-serif; color: #E6EAF2; background: #0B1020; min-height: 100vh">
+  <div style="max-width: 1080px; margin: 0 auto; padding: 0 24px 64px">
+
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 0">
+      <a href="#top" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #E6EAF2; text-decoration: none">Yash Channe</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 15px">
+        <a href="#timeline" style="color: #E6EAF2; text-decoration: none">Work</a>
+        <a href="#resume" style="color: #E6EAF2; text-decoration: none">Resume</a>
+        <a href="#contact" style="color: #E6EAF2; text-decoration: none">Contact</a>
+      </div>
+    </nav>
+
+    <header id="top" style="padding: 88px 0 48px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #5EEAD4; border: 1px solid #1F3B46; padding: 6px 12px; border-radius: 999px">CSM → PM · open to roles</span>
+      <h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(44px, 6.4vw, 84px); line-height: 1.02; letter-spacing: -0.03em; max-width: 16ch">I hear the problem first. Then I ship the fix.</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #A9B3C6; max-width: 54ch">Five products, each started from a problem I saw firsthand. Scroll the loop.</p>
+    </header>
+
+    <section aria-label="At a glance" style="display: flex; flex-wrap: wrap; gap: 12px; padding-bottom: 88px">
+      <sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+        <div style="background: #121A30; border: 1px solid #1E2A47; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 180px">
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700">{{k.value}}</span>
+          <span style="font-size: 13px; color: #A9B3C6">{{k.label}}</span>
+        </div>
+      </sc-for>
+    </section>
+
+    <section id="timeline" aria-labelledby="tl-h">
+      <h2 id="tl-h" style="margin: 0 0 48px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -0.02em">The loop, five times</h2>
+      <ol style="list-style: none; margin: 0; padding: 0 0 0 36px; border-left: 2px solid #1E2A47; display: flex; flex-direction: column; gap: 40px">
+        <sc-for list="{{entries}}" as="e" hint-placeholder-count="5">
+          <li style="position: relative">
+            <span aria-hidden="true" style="position: absolute; left: -47px; top: 22px; width: 18px; height: 18px; border-radius: 50%; background: #5EEAD4; border: 4px solid #0B1020"></span>
+            <a href="#case" style="display: flex; flex-direction: column; gap: 18px; background: #121A30; border: 1px solid #1E2A47; border-radius: 18px; padding: 28px; color: #E6EAF2; text-decoration: none">
+              <span style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+                <span style="display: flex; align-items: center; gap: 12px">
+                  <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #0B1020; background: #5EEAD4; padding: 4px 10px; border-radius: 6px; font-weight: 500">{{e.step}}</span>
+                  <span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700">{{e.title}}</span>
+                </span>
+                <span style="font-size: 13px; color: #A9B3C6; border: 1px solid #2A3A5E; padding: 4px 10px; border-radius: 999px">{{e.status}}</span>
+              </span>
+              <span style="display: flex; flex-wrap: wrap; gap: 24px">
+                <span style="flex: 1 1 260px; font-size: 16px; line-height: 1.6; color: #C9D1E0"><strong style="color: #E6EAF2">Noticed:</strong> {{e.noticed}}</span>
+                <span style="flex: 1 1 260px; font-size: 16px; line-height: 1.6; color: #C9D1E0"><strong style="color: #E6EAF2">Did:</strong> {{e.did}}</span>
+              </span>
+              <span style="display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid #1E2A47; padding-top: 16px">
+                <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A9B3C6; background: #0F1628; padding: 6px 10px; border-radius: 6px">{{e.fact}}</span>
+                <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A9B3C6; background: #0F1628; padding: 6px 10px; border-radius: 6px">{{e.stack}}</span>
+              </span>
+            </a>
+          </li>
+        </sc-for>
+      </ol>
+    </section>
+
+    <footer id="contact" style="margin-top: 88px; border: 1px solid #1E2A47; background: #121A30; border-radius: 24px; padding: clamp(32px, 6vw, 64px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px">
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 4.4vw, 52px); letter-spacing: -0.02em">Next loop: your product.</h2>
+      <div id="resume" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+        <a href="mailto:you@example.com" style="background: #5EEAD4; color: #0B1020; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 600">[your email]</a>
+        <a href="#resume" style="border: 1.5px solid #5EEAD4; color: #5EEAD4; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 600">Resume</a>
+        <a href="https://github.com/yasshhc" style="border: 1.5px solid #5EEAD4; color: #5EEAD4; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 600">GitHub</a>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      kpis: [
+        { value: '5', label: 'products built' },
+        { value: '1', label: 'live in production' },
+        { value: '[N]', label: 'client accounts' },
+        { value: '[N]', label: 'years in CS' }
+      ],
+      entries: [
+        { step: '01 LISTEN', title: 'CSM Assistant', status: 'In daily use', noticed: 'The best product insight lived in client calls, then vanished into one-off notes.', did: 'Built a tool that turns every transcript into follow-ups, tasks, pain points and churn signals.', fact: '2 AI passes per call', stack: 'FastAPI · React · Claude' },
+        { step: '02 NOTICE', title: 'Reddit Pain-Point Miner', status: 'Discovery tool', noticed: 'People describe their problems in public, in their own words, every day.', did: 'Clustered complaints and ranked opportunities by frequency, confidence and willingness to pay.', fact: '≥ 5 posts per theme', stack: 'Python · Claude' },
+        { step: '03 DECIDE', title: 'Coverage-nav', status: 'Paused on purpose', noticed: 'A similar internal project existed, and the one-way street data didn’t.', did: 'Built only what was useful either way, wrote up the open decision, and stopped.', fact: 'solver: not built, by design', stack: 'Python · graphs' },
+        { step: '04 BUILD', title: 'CRS Calculator', status: 'Live', noticed: 'Express Entry rules were changing and nobody showed both scores side by side.', did: 'Shipped a tested scoring engine plus a site with ranked tips to gain points.', fact: '2 rule sets compared', stack: 'Next.js · TypeScript' },
+        { step: '05 MEASURE', title: 'Vitals', status: 'Personal product', noticed: 'Health scores are black boxes you can’t question.', did: 'Rebuilt recovery and strain from Apple Watch data with every formula visible.', fact: '73 tests', stack: 'Python · Streamlit' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

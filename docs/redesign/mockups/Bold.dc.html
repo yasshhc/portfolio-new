@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bold personal portfolio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#2A3BFF}a:hover{color:#1A26B8}
+</style>
+</helmet>
+<div style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; color: #111111; background: #FFFFFF; min-height: 100vh">
+
+  <nav aria-label="Main" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 32px">
+    <a href="#top" style="font-size: 22px; font-weight: 800; color: #111111; text-decoration: none">yash.</a>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 17px; font-weight: 600">
+      <a href="#work" style="color: #111111">work</a>
+      <a href="#me" style="color: #111111">me</a>
+      <a href="#contact" style="color: #111111">say hi</a>
+    </div>
+  </nav>
+
+  <header id="top" style="padding: 64px 32px 80px; display: flex; flex-direction: column; gap: 32px">
+    <h1 style="margin: 0; font-size: clamp(64px, 12vw, 176px); line-height: 0.9; font-weight: 800; letter-spacing: -0.045em">Hi, I'm Yash.</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
+      <p style="margin: 0; font-size: clamp(24px, 2.6vw, 36px); line-height: 1.25; font-weight: 600; max-width: 26ch">I listen to customers for a living. Then I go home and <span style="background: #FF5A36; padding: 0 8px">build what they need</span>.</p>
+      <div style="width: 220px; height: 260px; border-radius: 24px; background: #E9EAF0; display: flex; align-items: center; justify-content: center; color: #4A4C57; font-size: 15px; transform: rotate(3deg)">[your photo]</div>
+    </div>
+  </header>
+
+  <div aria-hidden="true" style="background: #111111; color: #FFFFFF; padding: 18px 32px; font-size: 22px; font-weight: 600; white-space: nowrap; overflow: hidden">customer success  ✦  discovery  ✦  shipping  ✦  saying no  ✦  churn signals  ✦  roadmaps  ✦  customer success  ✦  discovery</div>
+
+  <section id="work" aria-labelledby="work-h" style="padding: 96px 32px 48px">
+    <h2 id="work-h" style="margin: 0 0 40px; font-size: clamp(40px, 6vw, 88px); font-weight: 800; letter-spacing: -0.04em; line-height: 1">Things I made<br>because I had to.</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px">
+      <a href="#case" style="flex: 2 1 560px; min-height: 380px; background: #2A3BFF; color: #FFFFFF; border-radius: 28px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; text-decoration: none">
+        <span style="font-size: 16px; font-weight: 600">My day job, automated</span>
+        <span style="display: flex; flex-direction: column; gap: 12px">
+          <span style="font-size: clamp(40px, 5vw, 72px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.95">CSM Assistant</span>
+          <span style="font-size: 20px; line-height: 1.45; max-width: 40ch">Every client call becomes a follow-up email, action items, pain points and churn signals, rolled up across all accounts.</span>
+        </span>
+      </a>
+      <a href="#case" style="flex: 1 1 340px; min-height: 380px; background: #FF5A36; color: #111111; border-radius: 28px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; text-decoration: none">
+        <span style="font-size: 16px; font-weight: 600">Live, real users</span>
+        <span style="display: flex; flex-direction: column; gap: 12px">
+          <span style="font-size: 48px; font-weight: 800; letter-spacing: -0.04em; line-height: 0.95">CRS Calculator</span>
+          <span style="font-size: 18px; line-height: 1.45">Your Canada Express Entry score, today and after Nov 2026.</span>
+        </span>
+      </a>
+      <sc-for list="{{small}}" as="p" hint-placeholder-count="3">
+        <a href="#case" style="flex: 1 1 300px; min-height: 260px; background: #F1F1F4; color: #111111; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; text-decoration: none">
+          <span style="font-size: 15px; font-weight: 600; color: #4A4C57">{{p.tag}}</span>
+          <span style="display: flex; flex-direction: column; gap: 10px">
+            <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1">{{p.title}}</span>
+            <span style="font-size: 17px; line-height: 1.45">{{p.line}}</span>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="me" aria-labelledby="me-h" style="padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+    <h2 id="me-h" style="margin: 0; flex: 1 1 320px; font-size: clamp(40px, 6vw, 88px); font-weight: 800; letter-spacing: -0.04em; line-height: 1">Why PM?</h2>
+    <div style="flex: 2 1 520px; display: flex; flex-direction: column; gap: 24px; font-size: 24px; line-height: 1.45">
+      <p style="margin: 0">Because I'm already doing the first half of the job. Every week, city staff tell me exactly what's broken.</p>
+      <p style="margin: 0">I want to own the second half too: deciding what gets built, and what doesn't.</p>
+      <blockquote style="margin: 16px 0 0; padding: 28px 32px; border-radius: 24px; background: #111111; color: #FFFFFF; font-size: 22px; font-weight: 600">"[A real thing a client told you that changed what got built]"</blockquote>
+    </div>
+  </section>
+
+  <footer id="contact" style="background: #2A3BFF; color: #FFFFFF; padding: 96px 32px 64px; display: flex; flex-direction: column; gap: 32px">
+    <h2 style="margin: 0; font-size: clamp(56px, 10vw, 160px); font-weight: 800; letter-spacing: -0.05em; line-height: 0.9">Say hi.</h2>
+    <a href="mailto:you@example.com" style="color: #FFFFFF; font-size: clamp(24px, 3vw, 40px); font-weight: 600">[your email]</a>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 18px; font-weight: 600">
+      <a href="https://github.com/yasshhc" style="color: #FFFFFF">GitHub</a>
+      <a href="https://linkedin.com/in/" style="color: #FFFFFF">LinkedIn</a>
+      <a href="#resume" style="color: #FFFFFF">Resume</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      small: [
+        { tag: 'Finding problems', title: 'Pain-Point Miner', line: 'Reads Reddit complaints, ranks what people would pay to fix.' },
+        { tag: 'Nerding out', title: 'Vitals', line: 'WHOOP-style scores from my Apple Watch, no black boxes.' },
+        { tag: 'Knowing when to stop', title: 'Coverage-nav', line: 'Built the foundation, then paused it on purpose.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
