@@ -21,6 +21,7 @@ a{color:#2F6B4F}a:hover{color:#1F4A36}
       <a href="#top" style="color: #1B2421; text-decoration: none; font-weight: 700">~/yash-channe</a>
       <div style="display: flex; flex-wrap: wrap; gap: 20px">
         <a href="#board" style="color: #44514C; text-decoration: none">roadmap</a>
+        <a href="#specs" style="color: #44514C; text-decoration: none">specs</a>
         <a href="#timeline" style="color: #44514C; text-decoration: none">timeline</a>
         <a href="#log" style="color: #44514C; text-decoration: none">log</a>
         <a href="#contact" style="color: #44514C; text-decoration: none">contact</a>
@@ -30,7 +31,7 @@ a{color:#2F6B4F}a:hover{color:#1F4A36}
     <header id="top" style="padding: 72px 0 48px; display: flex; flex-direction: column; gap: 20px">
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #2F6B4F">$ whoami</span>
       <h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(44px, 6vw, 80px); letter-spacing: -0.035em; line-height: 1.02; max-width: 16ch">My career, managed like a product.</h1>
-      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #44514C; max-width: 58ch">Customer Success Manager for municipal software. Five side products, each built from a real customer problem. Next milestone: a Product Manager or APM role.</p>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #44514C; max-width: 58ch">Customer Success Manager for municipal software. At work, I turn customer calls into specs and tickets that the product team ships. On the side, I build and ship my own products. Next milestone: a Product Manager or APM role.</p>
       <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #1B2421; background: #D9F99D; padding: 6px 12px; border-radius: 999px">● status: open to PM / APM roles</span>
     </header>
 
@@ -73,6 +74,42 @@ a{color:#2F6B4F}a:hover{color:#1F4A36}
             </sc-for>
           </div>
         </sc-for>
+      </div>
+    </section>
+
+    <section id="specs" aria-labelledby="specs-h" style="padding-top: 80px">
+      <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #2F6B4F">$ tickets --author yash --status shipped</p>
+      <h2 id="specs-h" style="margin: 0 0 8px; font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em">Shipped from my specs</h2>
+      <p style="margin: 0 0 24px; font-size: 17px; line-height: 1.6; color: #44514C; max-width: 62ch">I don't write the code at work. I write the specs and tickets, and the product team builds them. These are features that started as one of my tickets.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 16px">
+        <sc-for list="{{specKpis}}" as="k" hint-placeholder-count="3">
+          <div style="flex: 1 1 200px; background: #FFFFFF; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; line-height: 1">{{k.value}}</span>
+            <span style="font-size: 14px; color: #44514C">{{k.label}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="overflow-x: auto; background: #FFFFFF; border-radius: 18px">
+        <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15px">
+          <thead>
+            <tr style="text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #44514C">
+              <th scope="col" style="padding: 16px 20px; font-weight: 500">CUSTOMER PROBLEM</th>
+              <th scope="col" style="padding: 16px 20px; font-weight: 500">WHAT I SPECCED</th>
+              <th scope="col" style="padding: 16px 20px; font-weight: 500">SHIPPED</th>
+              <th scope="col" style="padding: 16px 20px; font-weight: 500">STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{specs}}" as="t" hint-placeholder-count="4">
+              <tr style="border-top: 1px solid #E4ECE6">
+                <td style="padding: 16px 20px; line-height: 1.5">{{t.problem}}</td>
+                <td style="padding: 16px 20px; line-height: 1.5; color: #44514C">{{t.spec}}</td>
+                <td style="padding: 16px 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; white-space: nowrap">{{t.when}}</td>
+                <td style="padding: 16px 20px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; background: #D9F99D; padding: 3px 8px; border-radius: 6px">shipped</span></td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -147,11 +184,22 @@ class Component extends DCLogic {
           item({ title: 'Coverage-nav', line: 'Built the useful foundation, then stopped while the build-or-not decision was open.', tag: 'on purpose' }, white)
         ] },
         { name: 'now', dot: '#1B2421', count: '1', items: [
-          item({ title: 'Customer Success Manager', line: 'Municipal SaaS, [N] client accounts.', tag: 'day job' }, white)
+          item({ title: 'Customer Success Manager', line: 'Customer calls in, specs and tickets out. [N] client accounts.', tag: 'day job' }, white)
         ] },
         { name: 'next', dot: '#65A30D', count: '1', items: [
           item({ title: 'PM / APM role', line: 'Where customer insight drives the roadmap.', tag: 'your team?', href: '#contact' }, dark)
         ] }
+      ],
+      specKpis: [
+        { value: '[N]', label: 'tickets and specs written' },
+        { value: '[N]', label: 'features shipped from them' },
+        { value: '[N]', label: 'client accounts behind them' }
+      ],
+      specs: [
+        { problem: '[What clients kept running into]', spec: '[The feature or fix you wrote up]', when: '[Q? 2026]' },
+        { problem: '[Another recurring pain point]', spec: '[What the ticket asked for]', when: '[Q? 2025]' },
+        { problem: '[A churn risk you flagged]', spec: '[What shipped to address it]', when: '[Q? 2025]' },
+        { problem: '[A workaround clients relied on]', spec: '[The proper feature that replaced it]', when: '[Q? 2025]' }
       ],
       bars: [
         { name: 'Customer Success', col: '2 / 6', label: 'CSM, municipal SaaS (ongoing)', bg: '#1B2421', fg: '#F1F4EF' },

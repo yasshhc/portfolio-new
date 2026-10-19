@@ -18,7 +18,7 @@ The `.dc.html` files here are copies of the canvas artboards. They need the canv
 | Topic | Decision |
 |---|---|
 | Audience | Recruiters and hiring managers for **Product Manager / APM** roles |
-| Story | Career switch: Customer Success Manager (municipal SaaS) who ships product |
+| Story | Career switch. At work: customer calls → specs and tickets the product team ships (Yash doesn't write code at work). On the side: builds and ships own products. |
 | Success | Recruiter downloads the resume or gets in touch |
 | Content | Real projects from GitHub; no fake recommendations, no skill-percentage bars, no invented numbers |
 | Concept | "My career, managed like a product" (from mockup #10) |
@@ -55,6 +55,7 @@ Not yet reviewed: `hittheroad-concept` (no README), older repos. Bill Splitter's
 - Confirm project dates for the timeline
 - One real client quote that changed what got built (optional)
 - OK to name the employer (Citylogix) on the site?
+- Ticket inventory: totals plus 4–6 example tickets → shipped features (public-safe wording) for the "Shipped from my specs" section
 
 ## Answered questions
 

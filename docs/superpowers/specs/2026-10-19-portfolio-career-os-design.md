@@ -9,7 +9,10 @@ Status: approved in conversation; awaiting review of this written spec
 Get Yash interviews for **Product Manager / Associate PM** roles.
 
 - **Audience:** recruiters and hiring managers.
-- **Story:** a Customer Success Manager (municipal SaaS) who already does product work: hears the problem on customer calls, then ships the fix.
+- **Story:** a Customer Success Manager (municipal SaaS) who already does product work in two ways:
+  - **At work:** turns customer calls into specs and tickets that the product team builds and ships. Yash does not write the code at work.
+  - **On the side:** builds and ships personal products end to end.
+  Never claim Yash shipped code at work, or that every side project came from a customer call.
 - **Success:** a visitor reads a case study, then downloads the resume or emails Yash.
 - **Rule:** only real content. No invented numbers, quotes or testimonials. Unknown facts stay visible as `[placeholders]` until Yash supplies them.
 
@@ -60,17 +63,18 @@ Chosen mockup: **#11 "Career OS"** (`docs/redesign/mockups/CareerOS.dc.html`), o
 ## 5. Homepage sections (top to bottom)
 
 1. **Nav:** `~/yash-channe` home link; links to roadmap, timeline, log, contact. Wraps on phones.
-2. **Hero:** `$ whoami`, headline "My career, managed like a product.", one-paragraph intro, lime status pill "open to PM / APM roles".
+2. **Hero:** `$ whoami`, headline "My career, managed like a product.", intro ("At work, I turn customer calls into specs and tickets that the product team ships. On the side, I build and ship my own products."), lime status pill "open to PM / APM roles".
 3. **⌘K jump menu** (section 7).
 4. **Roadmap board** (`$ roadmap --view board`), four columns:
    - **Shipped:** CRS Calculator (live), Bill Splitter (live), CSM Assistant (in daily use), Reddit Pain-Point Miner, Vitals.
    - **Paused:** Coverage-nav, "paused on purpose".
-   - **Now:** Customer Success Manager, municipal SaaS.
+   - **Now:** Customer Success Manager, municipal SaaS: customer calls in, specs and tickets out.
    - **Next:** PM / APM role, linking to the contact section.
    Cards with a case study link to it; the rest link to the live site or GitHub.
-5. **Timeline** (`$ roadmap --view timeline`): quarterly bars for the CS job and each project. Scrolls sideways on phones. Dates marked `[confirm dates]` until confirmed.
-6. **Release notes** (`$ git log --oneline career`): versioned career milestones, newest first.
-7. **Contact footer** (`$ roadmap --next`): "Next milestone: Product Manager at your company." Email, resume, GitHub, LinkedIn.
+5. **Shipped from my specs** (`$ tickets --author yash --status shipped`): from Yash's inventory of tickets and the features shipped from them. Three number tiles (tickets written, features shipped, client accounts) and a table: customer problem, what was specced, when it shipped, status. Details anonymised as needed (see section 12).
+6. **Timeline** (`$ roadmap --view timeline`): quarterly bars for the CS job and each project. Scrolls sideways on phones. Dates marked `[confirm dates]` until confirmed.
+7. **Release notes** (`$ git log --oneline career`): versioned career milestones, newest first.
+8. **Contact footer** (`$ roadmap --next`): "Next milestone: Product Manager at your company." Email, resume, GitHub, LinkedIn.
 
 ## 6. Case-study pages
 
@@ -102,6 +106,7 @@ All content lives in plain files so updates never require touching components:
 - `content/site.ts`: name, headline, intro, status, contact links, resume path.
 - `content/projects.ts`: one entry per project: `slug`, `title`, `summary`, `status`, `column` (`shipped | paused | now | next`), `stack`, `links`, `timeline` (quarter start/end), `hasCaseStudy`.
 - `content/releases.ts`: release-note entries (`version`, `message`).
+- `content/specs.ts`: shipped-from-my-specs entries (`problem`, `spec`, `shipped` quarter, optional `ticketCount` totals). Public-safe wording only.
 - `content/case-studies/<slug>.md`: case-study body in Markdown with front matter for the header.
 
 Placeholders use the form `[like this]` so they are easy to find.
@@ -133,3 +138,4 @@ Blog, dark mode, contact form, analytics, CMS, the old skills/certifications/rec
 - Project dates for the timeline
 - Bill Splitter: what problem it solves and who uses it
 - Results for each case study
+- The ticket inventory: totals (tickets written, features shipped) and 4–6 examples, worded so nothing confidential to Citylogix or its clients is published
