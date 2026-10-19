@@ -28,7 +28,7 @@ export const projects: Project[] = [
     summary: "Calls in; follow-ups, tasks, pain points, churn signals out.",
     status: "in daily use",
     column: "shipped",
-    stack: "[stack]",
+    stack: "FastAPI, React, Claude API",
     links: {},
     timeline: { start: 1, end: 1, label: "built" },
     hasCaseStudy: true,
