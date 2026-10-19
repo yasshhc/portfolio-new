@@ -3,21 +3,22 @@ import { site } from "@/content/site";
 import { specs } from "@/content/specs";
 
 const tiles = [
-  { value: site.specTotals.written, label: "tickets and specs written" },
-  { value: site.specTotals.shipped, label: "features shipped from them" },
-  { value: site.specTotals.accounts, label: "client accounts behind them" },
+  { value: site.specTotals.written, label: "tickets written" },
+  { value: site.specTotals.shipped, label: "closed or shipped (fixes and features)" },
+  { value: site.specTotals.accounts, label: "client accounts I manage" },
 ];
 
 export default function ShippedSpecs() {
   return (
     <section id="specs" aria-labelledby="specs-h" className="pt-20">
-      <CommandLabel>tickets --author yash --status shipped</CommandLabel>
+      <CommandLabel>tickets --reporter yash --status shipped</CommandLabel>
       <h2 id="specs-h" className="mb-2 font-heading text-[34px] font-bold tracking-tight">
-        Shipped from my specs
+        Shipped from my tickets
       </h2>
       <p className="mb-6 max-w-[62ch] text-[17px] leading-relaxed text-muted">
-        I don&apos;t write the code at work. I write the specs and tickets, and the product team
-        builds them. These are features that started as one of my tickets.
+        I don&apos;t write the code at work. I turn what customers tell me into tickets, sometimes
+        with how I think it should work. The product manager scopes them and the product team
+        builds them. These are fixes and features that started as one of my tickets.
       </p>
       <div className="mb-4 flex flex-wrap gap-4">
         {tiles.map((t) => (
@@ -34,7 +35,7 @@ export default function ShippedSpecs() {
         <table className="w-full min-w-[720px] border-collapse text-[15px]">
           <thead>
             <tr className="text-left font-mono text-xs text-muted">
-              {["CUSTOMER PROBLEM", "WHAT I SPECCED", "SHIPPED", "STATUS"].map((h) => (
+              {["CUSTOMER PROBLEM", "WHAT MY TICKET ASKED FOR", "SHIPPED", "STATUS"].map((h) => (
                 <th key={h} scope="col" className="px-5 py-4 font-medium">
                   {h}
                 </th>

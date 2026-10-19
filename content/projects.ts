@@ -70,7 +70,7 @@ export const projects: Project[] = [
   {
     slug: "customer-success-manager",
     title: "Customer Success Manager",
-    summary: "Customer calls in, specs and tickets out. [N] client accounts.",
+    summary: "Customer calls in, tickets out. [N] client accounts.",
     status: "day job",
     column: "now",
     stack: "Municipal SaaS",

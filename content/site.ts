@@ -4,7 +4,7 @@ export const site: SiteInfo = {
   name: "Yash Channe",
   headline: "My career, managed like a product.",
   intro:
-    "Customer Success Manager for municipal software. At work, I turn customer calls into specs and tickets that the product team ships. On the side, I build and ship my own products. Next milestone: a Product Manager or APM role.",
+    "Customer Success Manager for municipal software. At work, I turn customer calls into tickets that the product team ships. On the side, I build and ship my own products. Next milestone: a Product Manager or APM role.",
   status: "open to PM / APM roles",
   email: "mailto:[your email]",
   linkedin: "https://linkedin.com/in/[handle]",
@@ -12,5 +12,5 @@ export const site: SiteInfo = {
   resume: "/resume.pdf",
   year: 2026,
   timelineNote: "[confirm dates]",
-  specTotals: { written: "[N]", shipped: "[N]", accounts: "[N]" },
+  specTotals: { written: "146", shipped: "57", accounts: "[N]" },
 };

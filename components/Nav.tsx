@@ -2,7 +2,7 @@ import { site } from "@/content/site";
 
 const links = [
   { href: "#board", label: "roadmap" },
-  { href: "#specs", label: "specs" },
+  { href: "#specs", label: "tickets" },
   { href: "#timeline", label: "timeline" },
   { href: "#log", label: "log" },
   { href: "#contact", label: "contact" },

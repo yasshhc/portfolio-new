@@ -15,7 +15,7 @@ describe("homepage", () => {
 
   it("has a single h1 and the four section headings", () => {
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
-    for (const name of ["Roadmap", "Shipped from my specs", "Timeline", "Release notes"]) {
+    for (const name of ["Roadmap", "Shipped from my tickets", "Timeline", "Release notes"]) {
       expect(screen.getByRole("heading", { level: 2, name })).toBeInTheDocument();
     }
   });
@@ -76,6 +76,15 @@ describe("homepage", () => {
     const email = footer.getByRole("link", { name: site.email.replace("mailto:", "") });
     expect(email).toHaveClass("break-all");
     expect(email).toHaveClass("min-w-0");
+  });
+
+  it("never describes the work as writing specs, only tickets", () => {
+    expect(document.body.textContent).not.toMatch(/\bspec/i);
+  });
+
+  it("labels the ticket column as what the ticket asked for", () => {
+    const headers = screen.getAllByRole("columnheader").map((th) => th.textContent);
+    expect(headers).toContain("WHAT MY TICKET ASKED FOR");
   });
 
   it("has nav links to every section", () => {

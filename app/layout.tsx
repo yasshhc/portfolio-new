@@ -9,7 +9,7 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 export const metadata: Metadata = {
   title: "Yash Channe | Customer Success → Product",
   description:
-    "Customer Success Manager who turns customer calls into specs and tickets the product team ships, and builds and ships own products on the side.",
+    "Customer Success Manager who turns customer calls into tickets the product team ships, and builds and ships own products on the side.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

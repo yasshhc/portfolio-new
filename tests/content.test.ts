@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
@@ -36,6 +38,14 @@ describe("content model", () => {
       site.github,
     ];
     for (const link of links) expect(link).toMatch(/^(https:\/\/|mailto:)/);
+  });
+
+  it("site metadata and copy say tickets, not specs", () => {
+    // layout.tsx loads next/font, which does not run under Vitest, so read its source.
+    const layout = fs.readFileSync(path.join(process.cwd(), "app/layout.tsx"), "utf8");
+    const description = layout.match(/description:\s*"([^"]+)"/s)?.[1] ?? "";
+    expect(description).toMatch(/tickets/);
+    expect(JSON.stringify([site, projects, description])).not.toMatch(/\bspecs?\b|specced/i);
   });
 
   it("copy never claims coding at work", () => {
