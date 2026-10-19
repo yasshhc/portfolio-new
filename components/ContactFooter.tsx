@@ -17,7 +17,7 @@ export default function ContactFooter() {
       <div className="flex flex-wrap gap-3 pt-2">
         <a
           href={site.email}
-          className="rounded-full bg-ink px-[22px] py-3.5 font-semibold text-bg no-underline"
+          className="min-w-0 max-w-full break-all rounded-full bg-ink px-[22px] py-3.5 font-semibold text-bg no-underline"
         >
           {site.email.replace("mailto:", "")}
         </a>

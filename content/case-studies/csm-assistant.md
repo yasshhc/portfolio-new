@@ -24,7 +24,7 @@ After each call I pasted the transcript into a chatbot. No memory per client, no
 | Two AI passes per meeting, not one | Client-facing output and internal risk notes need different tone and structure. |
 | Action items persist across meetings | A task list that resets every call is useless to a CSM. |
 | Pain points stored as structured data | Topic, severity and quote make cross-client rollups possible. |
-| Runs locally, no auth | Client data stays on my machine; a single user doesn’t need accounts yet. |
+| Client data kept private | Call transcripts contain client information, so keeping it private comes first. |
 
 ## Results
 

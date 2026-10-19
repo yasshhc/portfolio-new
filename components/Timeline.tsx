@@ -18,7 +18,7 @@ export default function Timeline() {
     .sort((a, b) => a.timeline.start - b.timeline.start || b.timeline.end - a.timeline.end);
   return (
     <section id="timeline" aria-labelledby="tl-h" className="pt-20">
-      <CommandLabel>roadmap --view timeline --year 2026</CommandLabel>
+      <CommandLabel>{`roadmap --view timeline --year ${site.year}`}</CommandLabel>
       <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
         <h2 id="tl-h" className="font-heading text-[34px] font-bold tracking-tight">
           Timeline

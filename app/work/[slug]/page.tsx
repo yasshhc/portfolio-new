@@ -17,7 +17,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const study = getCaseStudy(slug);
-  return { title: study ? `${study.title} | Yash Channe` : "Not found | Yash Channe" };
+  if (!study) return { title: "Not found | Yash Channe" };
+  return { title: `${study.title} | Yash Channe`, description: study.tldr };
 }
 
 // react-markdown hands every override a hast `node` prop; spread onto a DOM element it

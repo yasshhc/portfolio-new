@@ -1,5 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { getCaseStudy } from "@/lib/caseStudies";
 import CaseStudyPage, {
   dynamicParams,
   generateMetadata,
@@ -23,6 +24,13 @@ describe("case-study page", () => {
   it("sets the page title", async () => {
     const meta = await generateMetadata({ params: Promise.resolve({ slug: "crs-calculator" }) });
     expect(meta.title).toBe("CRS Calculator | Yash Channe");
+  });
+
+  it("uses each case study's TL;DR as its meta description", async () => {
+    for (const slug of ["crs-calculator", "bill-splitter", "csm-assistant"]) {
+      const meta = await generateMetadata({ params: Promise.resolve({ slug }) });
+      expect(meta.description).toBe(getCaseStudy(slug)!.tldr);
+    }
   });
 
   it("renders the header, TL;DR, decision-log table and navigation", async () => {

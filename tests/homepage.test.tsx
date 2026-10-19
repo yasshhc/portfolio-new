@@ -71,6 +71,13 @@ describe("homepage", () => {
     );
   });
 
+  it("lets the email button wrap so a long address cannot overflow the footer", () => {
+    const footer = within(screen.getByRole("contentinfo"));
+    const email = footer.getByRole("link", { name: site.email.replace("mailto:", "") });
+    expect(email).toHaveClass("break-all");
+    expect(email).toHaveClass("min-w-0");
+  });
+
   it("has nav links to every section", () => {
     const nav = within(screen.getByRole("navigation", { name: "Main" }));
     const hrefs = nav.getAllByRole("link").map((a) => a.getAttribute("href"));

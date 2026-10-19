@@ -58,6 +58,15 @@ describe("JumpMenu", () => {
     expect(navigate).not.toHaveBeenCalled();
   });
 
+  it("reports whether the list is showing through aria-expanded", async () => {
+    const { user, input } = setup();
+    expect(input).toHaveAttribute("aria-expanded", "true");
+    await user.type(input, "zzz");
+    expect(input).toHaveAttribute("aria-expanded", "false");
+    await user.keyboard("{Escape}");
+    expect(input).toHaveAttribute("aria-expanded", "true");
+  });
+
   it("lists every target as a normal link", () => {
     setup();
     for (const option of screen.getAllByRole("option")) {
