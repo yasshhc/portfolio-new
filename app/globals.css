@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f1f4ef;
+  --color-ink: #1b2421;
+  --color-muted: #44514c;
+  --color-green: #2f6b4f;
+  --color-lime: #d9f99d;
+  --color-tile: #ffffff;
+  --color-tile-alt: #e4ece6;
+  --color-paused: #c2410c;
+}
+
+@theme inline {
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-green);
+  outline-offset: 2px;
+}
