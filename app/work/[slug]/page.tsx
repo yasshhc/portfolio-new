@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type ExtraProps } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CommandLabel from "@/components/CommandLabel";
 import { getAdjacent, getCaseStudy, listCaseStudySlugs } from "@/lib/caseStudies";
@@ -20,30 +20,38 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return { title: study ? `${study.title} | Yash Channe` : "Not found | Yash Channe" };
 }
 
+// react-markdown hands every override a hast `node` prop; spread onto a DOM element it
+// would be written out as node="[object Object]".
+function withoutNode<P extends ExtraProps>(props: P): Omit<P, "node"> {
+  const rest: Partial<P> = { ...props };
+  delete rest.node;
+  return rest as Omit<P, "node">;
+}
+
 const markdownComponents = {
-  h2: (props: React.ComponentProps<"h2">) => (
-    <h2 className="mb-3 mt-12 font-heading text-[28px] font-bold tracking-tight" {...props} />
+  h2: (props: React.ComponentProps<"h2"> & ExtraProps) => (
+    <h2 className="mb-3 mt-12 font-heading text-[28px] font-bold tracking-tight" {...withoutNode(props)} />
   ),
-  p: (props: React.ComponentProps<"p">) => (
-    <p className="mb-4 max-w-[68ch] text-[17px] leading-relaxed" {...props} />
+  p: (props: React.ComponentProps<"p"> & ExtraProps) => (
+    <p className="mb-4 max-w-[68ch] text-[17px] leading-relaxed" {...withoutNode(props)} />
   ),
-  ul: (props: React.ComponentProps<"ul">) => (
-    <ul className="mb-4 max-w-[68ch] list-disc space-y-2 pl-6 text-[17px] leading-relaxed" {...props} />
+  ul: (props: React.ComponentProps<"ul"> & ExtraProps) => (
+    <ul className="mb-4 max-w-[68ch] list-disc space-y-2 pl-6 text-[17px] leading-relaxed" {...withoutNode(props)} />
   ),
-  a: (props: React.ComponentProps<"a">) => <a className="text-green underline" {...props} />,
-  code: (props: React.ComponentProps<"code">) => (
-    <code className="rounded bg-tile-alt px-1 font-mono text-[15px]" {...props} />
+  a: (props: React.ComponentProps<"a"> & ExtraProps) => <a className="text-green underline" {...withoutNode(props)} />,
+  code: (props: React.ComponentProps<"code"> & ExtraProps) => (
+    <code className="rounded bg-tile-alt px-1 font-mono text-[15px]" {...withoutNode(props)} />
   ),
-  table: (props: React.ComponentProps<"table">) => (
+  table: (props: React.ComponentProps<"table"> & ExtraProps) => (
     <div className="overflow-x-auto rounded-[18px] bg-tile">
-      <table className="w-full min-w-[560px] border-collapse text-[15px]" {...props} />
+      <table className="w-full min-w-[560px] border-collapse text-[15px]" {...withoutNode(props)} />
     </div>
   ),
-  th: (props: React.ComponentProps<"th">) => (
-    <th className="px-5 py-4 text-left font-mono text-xs font-medium text-muted" {...props} />
+  th: (props: React.ComponentProps<"th"> & ExtraProps) => (
+    <th className="px-5 py-4 text-left font-mono text-xs font-medium text-muted" {...withoutNode(props)} />
   ),
-  td: (props: React.ComponentProps<"td">) => (
-    <td className="border-t border-tile-alt px-5 py-4 align-top leading-normal" {...props} />
+  td: (props: React.ComponentProps<"td"> & ExtraProps) => (
+    <td className="border-t border-tile-alt px-5 py-4 align-top leading-normal" {...withoutNode(props)} />
   ),
 };
 

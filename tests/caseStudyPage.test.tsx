@@ -61,3 +61,12 @@ describe("case-study page", () => {
     );
   });
 });
+
+describe("case-study markup", () => {
+  it("does not leak react-markdown's node prop into the DOM", async () => {
+    const { container } = render(
+      await CaseStudyPage({ params: Promise.resolve({ slug: "crs-calculator" }) }),
+    );
+    expect(container.querySelectorAll("[node]")).toHaveLength(0);
+  });
+});
