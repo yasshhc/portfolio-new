@@ -1,5 +1,6 @@
 import CommandLabel from "@/components/CommandLabel";
 import { projects } from "@/content/projects";
+import { site } from "@/content/site";
 import type { Project } from "@/content/types";
 
 const quarters = ["Q1", "Q2", "Q3", "Q4"];
@@ -22,7 +23,7 @@ export default function Timeline() {
         <h2 id="tl-h" className="font-heading text-[34px] font-bold tracking-tight">
           Timeline
         </h2>
-        <span className="font-mono text-xs text-muted">[confirm dates]</span>
+        <span className="font-mono text-xs text-muted">{site.timelineNote}</span>
       </div>
       <div className="overflow-x-auto rounded-[18px] bg-tile">
         <div
