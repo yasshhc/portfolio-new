@@ -7,5 +7,5 @@ export const releases: Release[] = [
   { version: "v4.0", message: "measure: Vitals, transparent health scores from Apple Watch data" },
   { version: "v3.0", message: "notice: Pain-Point Miner, ranking problems people would pay to fix" },
   { version: "v2.0", message: "listen: CSM Assistant, built for my own client calls" },
-  { version: "v1.0", message: "init: Customer Success Manager, municipal SaaS [year]" },
+  { version: "v1.0", message: "init: Customer Success Manager, municipal SaaS 2025" },
 ];
