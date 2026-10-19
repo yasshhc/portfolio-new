@@ -1,5 +1,6 @@
 import ContactFooter from "@/components/ContactFooter";
 import Hero from "@/components/Hero";
+import JumpMenu from "@/components/JumpMenu";
 import Nav from "@/components/Nav";
 import ReleaseNotes from "@/components/ReleaseNotes";
 import RoadmapBoard from "@/components/RoadmapBoard";
@@ -12,6 +13,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <JumpMenu />
         <RoadmapBoard />
         <ShippedSpecs />
         <Timeline />

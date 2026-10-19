@@ -17,7 +17,9 @@
   --font-mono: var(--font-mono);
 }
 
-:focus-visible {
-  outline: 3px solid var(--color-green);
-  outline-offset: 2px;
+@layer base {
+  :focus-visible {
+    outline: 3px solid var(--color-green);
+    outline-offset: 2px;
+  }
 }
