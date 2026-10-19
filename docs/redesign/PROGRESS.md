@@ -10,7 +10,8 @@ Read this first when picking the redesign back up in a new session.
 - **Spec written:** `docs/superpowers/specs/2026-10-19-portfolio-career-os-design.md` (approved).
 - **Spec approved.** Plan written: `docs/superpowers/plans/2026-10-19-portfolio-career-os.md` (8 tasks).
 - **Execution method chosen: Native** (superpowers:executing-plans: one session builds all tasks, then one fresh reviewer checks the whole branch).
-- **Next step:** build Task 1 onward on branch `claude/wizardly-mendel-w7okf9`. Launch first on a private Vercel preview link, iterate, then move to yashchanne.com.
+- **Built:** all 8 plan tasks are done on branch `claude/wizardly-mendel-w7okf9` (Next.js static site: homepage, 3 case studies, ⌘K jump menu, pre-launch checks). Status: **built, awaiting preview.**
+- **Next step:** Yash imports the repo into Vercel as a private preview (steps in `README.md`), checks it at phone and desktop width, then supplies the content below. Move to yashchanne.com only once `npm run check:placeholders` passes.
 - Yash is preparing a Markdown export of the Asana/Jira tickets they authored; use the top ones for "Shipped from my specs" (anonymised).
 
 Mockup canvas (private to Yash): https://claude.ai/artifact/XFwKGBFWzVfA7MoKxf7J5X

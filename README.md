@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# Yash Channe: portfolio
 
-## Project info
+A static Next.js site that presents Yash's career as a product: a roadmap board, a timeline, release notes and three case studies. It is aimed at recruiters and hiring managers for Product Manager / APM roles.
 
-**URL**: https://lovable.dev/projects/1222d9ea-4dab-4f21-9919-206d68ed2738
+- Design spec: `docs/superpowers/specs/2026-10-19-portfolio-career-os-design.md`
+- Build plan: `docs/superpowers/plans/2026-10-19-portfolio-career-os.md`
+- Where the redesign stands: `docs/redesign/PROGRESS.md`
 
-## How can I edit this code?
+## Run it
 
-There are several ways of editing your application.
+Needs Node 22.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/1222d9ea-4dab-4f21-9919-206d68ed2738) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+npm install
+npm run dev          # http://localhost:3000
+npm test             # unit and content tests
+npm run typecheck
+npm run lint
+npm run build        # static site in out/
 ```
 
-**Edit a file directly in GitHub**
+## Where the content lives
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+All copy is in `content/`, so updating the site never means touching components.
 
-**Use GitHub Codespaces**
+| File | What it holds |
+|---|---|
+| `content/site.ts` | name, headline, intro, status pill, email, LinkedIn, GitHub, resume path, spec totals |
+| `content/projects.ts` | one entry per roadmap card and timeline bar |
+| `content/releases.ts` | the `git log` release notes, newest first |
+| `content/specs.ts` | the "Shipped from my specs" table (anonymised, public-safe wording only) |
+| `content/case-studies/<slug>.md` | one Markdown file per case study; the header fields are front matter |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Anything written as `[like this]` is a placeholder for a fact still to be supplied. Nothing is invented.
 
-## What technologies are used for this project?
+### Edit a roadmap card
 
-This project is built with:
+Open `content/projects.ts` and change the entry. `column` picks the board column (`shipped`, `paused`, `now`, `next`). A card links to its case study when `hasCaseStudy` is `true` (and `content/case-studies/<slug>.md` exists), otherwise to `links.live`, otherwise to `links.github`. Give it a `timeline` (`start` and `end` quarter, 1 to 4) to show it as a bar on the timeline.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Add the resume
 
-## How can I deploy this project?
+Put the PDF at `public/resume.pdf`. Until then the resume links point at a missing file, which is fine for a preview.
 
-Simply open [Lovable](https://lovable.dev/projects/1222d9ea-4dab-4f21-9919-206d68ed2738) and click on Share -> Publish.
+## Launch
 
-## Can I connect a custom domain to my Lovable project?
+Both steps happen in the Vercel dashboard.
 
-Yes, you can!
+**Phase 1: private preview**
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Vercel, Add New Project, import `yasshhc/portfolio-new`. Framework: Next.js, default settings.
+2. Deploy branch `claude/wizardly-mendel-w7okf9` as a preview.
+3. Turn on Deployment Protection (Vercel Authentication) so the preview link stays private.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Phase 2: yashchanne.com**
+
+1. Run `npm run check:placeholders`. It exits with an error while any `[placeholder]` is left in `content/`; it has to print "No placeholders left." first.
+2. Merge to `main`.
+3. Add `yashchanne.com` under Project, Domains. The `crscal.` and `billsplitter.` subdomains are not touched.
