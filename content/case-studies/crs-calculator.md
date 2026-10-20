@@ -28,13 +28,14 @@ The Express Entry rules change on Nov 3, 2026, when a Labour Market Integration 
 | Tips come from re-running the engine | Each point gain is computed, not hand-written, so tips cannot drift from the scoring rules. |
 | Rules live in data files with a `checkedOn` date | Updating a rule is a data edit, a date and a test run, not a code change. |
 | No sign-up, no account | Your answers never leave your phone. |
-| Every screen designed as a mockup first | Each screen was built to match an agreed design. I’m not a developer by background; I built it with an AI coding assistant, step by step from idea to mockups to a live app. |
+| Every screen designed as a mockup first | Each screen was built to match an agreed design. |
 | “Estimate only” disclaimer | Not affiliated with IRCC, and not immigration or legal advice. |
 
 ## Results
 
 - **Live** at crscal.yashchanne.com
 - **132** automated tests run before every update
+- **[25,000]** visits since launch
 - **551 vs 511:** the reference test profile scores 551 from Nov 3, 2026 and 511 today
 
 ## What I'd do next

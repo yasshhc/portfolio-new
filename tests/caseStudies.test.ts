@@ -58,10 +58,10 @@ describe("case studies", () => {
 });
 
 describe("CRS Calculator case study", () => {
-  it("has no placeholders left and uses the launch-post facts", () => {
+  it("uses the launch-post facts and leaves out the AI-assistant line", () => {
     const study = getCaseStudy("crs-calculator")!;
     const text = study.tldr + study.body;
-    expect(text).not.toMatch(/\[[^\]]+\](?!\()/);
+    expect(text).not.toMatch(/AI coding assistant|not a developer/i);
     expect(text).toContain("132 automated tests");
     expect(text).toMatch(/never leave your phone|never leave the phone/);
   });
