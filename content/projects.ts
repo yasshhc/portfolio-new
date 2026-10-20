@@ -9,7 +9,11 @@ export const projects: Project[] = [
     column: "shipped",
     stack: "Next.js, TypeScript, Tailwind CSS",
     links: { live: "https://crscal.yashchanne.com" },
-    timeline: { start: 4, end: 4, label: "shipped live" },
+    timeline: {
+      start: { year: 2026, quarter: 4 },
+      end: { year: 2026, quarter: 4 },
+      label: "live",
+    },
     hasCaseStudy: true,
   },
   {
@@ -30,7 +34,11 @@ export const projects: Project[] = [
     column: "shipped",
     stack: "FastAPI, React, Claude API",
     links: {},
-    timeline: { start: 1, end: 1, label: "built" },
+    timeline: {
+      start: { year: 2026, quarter: 1 },
+      end: { year: 2026, quarter: 1 },
+      label: "built",
+    },
     hasCaseStudy: true,
   },
   {
@@ -41,7 +49,11 @@ export const projects: Project[] = [
     column: "shipped",
     stack: "[stack]",
     links: {},
-    timeline: { start: 2, end: 2, label: "built" },
+    timeline: {
+      start: { year: 2026, quarter: 2 },
+      end: { year: 2026, quarter: 2 },
+      label: "built",
+    },
     hasCaseStudy: false,
   },
   {
@@ -52,7 +64,11 @@ export const projects: Project[] = [
     column: "shipped",
     stack: "[stack]",
     links: {},
-    timeline: { start: 3, end: 3, label: "built" },
+    timeline: {
+      start: { year: 2026, quarter: 3 },
+      end: { year: 2026, quarter: 3 },
+      label: "built",
+    },
     hasCaseStudy: false,
   },
   {
@@ -64,7 +80,11 @@ export const projects: Project[] = [
     column: "paused",
     stack: "[stack]",
     links: {},
-    timeline: { start: 3, end: 3, label: "paused" },
+    timeline: {
+      start: { year: 2026, quarter: 3 },
+      end: { year: 2026, quarter: 3 },
+      label: "paused",
+    },
     hasCaseStudy: false,
   },
   {
@@ -75,7 +95,11 @@ export const projects: Project[] = [
     column: "now",
     stack: "Municipal SaaS",
     links: {},
-    timeline: { start: 1, end: 4, label: "CSM, municipal SaaS (ongoing)" },
+    timeline: {
+      start: { year: 2025, quarter: 3 },
+      end: { year: 2026, quarter: 4 },
+      label: "CSM, municipal SaaS (ongoing)",
+    },
     hasCaseStudy: false,
   },
   {

@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
+import { pastRoles } from "@/content/timeline";
 import type { Column } from "@/content/types";
 
 describe("content model", () => {
@@ -24,9 +25,11 @@ describe("content model", () => {
     }
   });
 
-  it("timeline quarters are in order", () => {
-    for (const p of projects) {
-      if (p.timeline) expect(p.timeline.start).toBeLessThanOrEqual(p.timeline.end);
+  it("timeline spans end on or after they start", () => {
+    const index = (t: { year: number; quarter: number }) => t.year * 4 + t.quarter;
+    const spans = [...projects.map((p) => p.timeline), ...pastRoles.map((r) => r.timeline)];
+    for (const t of spans) {
+      if (t) expect(index(t.start)).toBeLessThanOrEqual(index(t.end));
     }
   });
 

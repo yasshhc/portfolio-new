@@ -2,6 +2,24 @@ export type Column = "shipped" | "paused" | "now" | "next";
 
 export type Quarter = 1 | 2 | 3 | 4;
 
+export interface YearQuarter {
+  year: number;
+  quarter: Quarter;
+}
+
+export interface TimelineSpan {
+  start: YearQuarter;
+  end: YearQuarter;
+  label: string;
+}
+
+// A role or project shown on the timeline but not on the roadmap board.
+export interface TimelineEntry {
+  slug: string;
+  title: string;
+  timeline: TimelineSpan;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -10,7 +28,7 @@ export interface Project {
   column: Column;
   stack: string;
   links: { live?: string; github?: string };
-  timeline?: { start: Quarter; end: Quarter; label: string };
+  timeline?: TimelineSpan;
   hasCaseStudy: boolean;
 }
 
