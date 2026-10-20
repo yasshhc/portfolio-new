@@ -19,10 +19,10 @@ export const projects: Project[] = [
   {
     slug: "bill-splitter",
     title: "Bill Splitter",
-    summary: "[What Bill Splitter does, in one line]",
+    summary: "Snap a receipt, tap who had what, share everyone's total.",
     status: "live",
     column: "shipped",
-    stack: "Next.js, TypeScript, Tailwind CSS",
+    stack: "Next.js, TypeScript, Tailwind CSS, Gemini API",
     links: { live: "https://billsplitter.yashchanne.com" },
     timeline: {
       start: { year: 2026, quarter: 1 },
