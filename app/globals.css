@@ -17,6 +17,17 @@
   --font-mono: var(--font-mono);
 }
 
+/* Timeline: a pinned name column, then one column per quarter, sized so that
+   --visible-quarters of them fill the scroll box (48px = the grid's right padding + gap). */
+.timeline-grid {
+  grid-template-columns:
+    var(--name-width)
+    repeat(
+      var(--quarters),
+      max(72px, calc((100cqw - var(--name-width) - 48px) / var(--visible-quarters)))
+    );
+}
+
 @layer base {
   :focus-visible {
     outline: 3px solid var(--color-green);

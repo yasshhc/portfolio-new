@@ -1,4 +1,5 @@
 import CommandLabel from "@/components/CommandLabel";
+import TimelineScroller from "@/components/TimelineScroller";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
 import { pastRoles } from "@/content/timeline";
@@ -12,6 +13,12 @@ interface Bar {
 }
 
 const index = ({ year, quarter }: YearQuarter) => year * 4 + (quarter - 1);
+
+// Row names stay pinned on the left; four quarters fill the rest of the visible width
+// (never narrower than 72px), and anything earlier sits off to the left. The column
+// formula is the .timeline-grid rule in globals.css.
+const NAME_WIDTH = "140px";
+const VISIBLE_QUARTERS = 4;
 
 function bars(): Bar[] {
   const fromProjects = projects.flatMap((p) => {
@@ -46,15 +53,23 @@ export default function Timeline() {
         <h2 id="tl-h" className="font-heading text-[34px] font-bold tracking-tight">
           Timeline
         </h2>
-        <span className="font-mono text-xs text-muted">{site.timelineNote}</span>
+        <span className="font-mono text-xs text-muted">
+          {site.timelineNote} <span aria-hidden="true">← scroll for earlier</span>
+        </span>
       </div>
-      <div className="overflow-x-auto rounded-[18px] bg-tile">
+      <TimelineScroller>
         <div
           data-testid="timeline-grid"
-          style={{ gridTemplateColumns: `160px repeat(${quarters.length}, minmax(72px, 1fr))` }}
-          className="grid min-w-[1000px] gap-y-3 p-6"
+          style={
+            {
+              "--name-width": NAME_WIDTH,
+              "--quarters": quarters.length,
+              "--visible-quarters": VISIBLE_QUARTERS,
+            } as React.CSSProperties
+          }
+          className="timeline-grid grid w-max gap-y-3 py-6 pr-6"
         >
-          <span aria-hidden="true" />
+          <span aria-hidden="true" className="sticky left-0 z-10 bg-tile" />
           {quarters.map((q) => (
             <span
               key={q}
@@ -66,7 +81,7 @@ export default function Timeline() {
           ))}
           {rows.map((r) => (
             <div key={r.slug} className="contents">
-              <span className="col-start-1 flex items-center pr-3 text-sm font-semibold">
+              <span className="sticky left-0 z-10 col-start-1 flex items-center bg-tile pl-6 pr-3 text-sm font-semibold">
                 {r.title}
               </span>
               <span
@@ -74,14 +89,18 @@ export default function Timeline() {
                 style={{
                   gridColumn: `${index(r.timeline.start) - first + 2} / ${index(r.timeline.end) - first + 3}`,
                 }}
-                className={`mx-1 truncate rounded-lg px-2 py-2.5 font-mono text-xs font-medium ${r.className}`}
+                className={`mx-1 overflow-clip rounded-lg px-2 py-2.5 font-mono text-xs font-medium ${r.className}`}
               >
-                {r.timeline.label}
+                {/* Sticks just right of the pinned names, so a bar that starts off-screen
+                    still shows its label. overflow-clip (not hidden) keeps sticky working. */}
+                <span className="sticky left-[calc(var(--name-width)+0.5rem)] block w-max max-w-[calc(100cqw-var(--name-width)-2.5rem)]">
+                  {r.timeline.label}
+                </span>
               </span>
             </div>
           ))}
         </div>
-      </div>
+      </TimelineScroller>
     </section>
   );
 }

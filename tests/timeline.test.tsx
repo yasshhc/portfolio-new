@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import Timeline from "@/components/Timeline";
 
 describe("timeline", () => {
@@ -35,5 +35,49 @@ describe("timeline", () => {
   it("lists rows in start order, earliest first", () => {
     const rows = screen.getAllByTestId(/^bar-/).map((b) => b.dataset.testid);
     expect(rows.slice(0, 2)).toEqual(["bar-project-coordinator", "bar-customer-success-manager"]);
+  });
+});
+
+describe("timeline scrolling", () => {
+  const original = {
+    scrollLeft: Object.getOwnPropertyDescriptor(Element.prototype, "scrollLeft"),
+    scrollWidth: Object.getOwnPropertyDescriptor(Element.prototype, "scrollWidth"),
+  };
+
+  afterEach(() => {
+    Object.defineProperty(Element.prototype, "scrollLeft", original.scrollLeft!);
+    Object.defineProperty(Element.prototype, "scrollWidth", original.scrollWidth!);
+  });
+
+  it("opens scrolled to the latest quarters", () => {
+    const setScrollLeft = vi.fn();
+    Object.defineProperty(Element.prototype, "scrollWidth", { configurable: true, get: () => 2000 });
+    Object.defineProperty(Element.prototype, "scrollLeft", {
+      configurable: true,
+      get: () => 0,
+      set: setScrollLeft,
+    });
+    render(<Timeline />);
+    expect(setScrollLeft).toHaveBeenCalledWith(2000);
+  });
+
+  it("is a labelled, keyboard-scrollable region", () => {
+    render(<Timeline />);
+    const scroller = screen.getByRole("region", { name: /scroll left for earlier quarters/i });
+    expect(scroller).toHaveAttribute("tabindex", "0");
+    expect(scroller).toContainElement(screen.getByTestId("timeline-grid"));
+  });
+
+  it("sizes quarter columns so four fill the visible width", () => {
+    render(<Timeline />);
+    const grid = screen.getByTestId("timeline-grid");
+    expect(grid).toHaveClass("timeline-grid");
+    expect(grid.style.getPropertyValue("--visible-quarters")).toBe("4");
+    expect(grid.style.getPropertyValue("--quarters")).toBe("11");
+  });
+
+  it("keeps the row names pinned while scrolling", () => {
+    render(<Timeline />);
+    expect(screen.getByText("Project Coordinator")).toHaveClass("sticky");
   });
 });
