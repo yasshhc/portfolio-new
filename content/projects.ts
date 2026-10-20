@@ -52,7 +52,7 @@ export const projects: Project[] = [
     summary: "Ranks opportunities from real Reddit complaints.",
     status: "discovery tool",
     column: "shipped",
-    stack: "[stack]",
+    stack: "Python, Claude API, Reddit data (PRAW, Arctic Shift)",
     links: {},
     timeline: {
       start: { year: 2026, quarter: 2 },
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     summary: "WHOOP-style scores, every formula visible.",
     status: "personal",
     column: "shipped",
-    stack: "[stack]",
+    stack: "Python, pandas, scikit-learn, Plotly, Streamlit",
     links: {},
     timeline: {
       start: { year: 2026, quarter: 3 },
