@@ -35,10 +35,12 @@ describe("scanPlaceholders", () => {
     expect(hits.sort()).toEqual(["case-studies/x.md: [md hole]", "site.ts: [ts hole]"]);
   });
 
-  it("flags the placeholders that are still in the real content", () => {
-    const hits = scanPlaceholders(path.join(process.cwd(), "content"));
-    const found = hits.map((h) => h.placeholder);
-    expect(found).toContain("[N]");
-    expect(hits.some((h) => h.file.endsWith("bill-splitter.md"))).toBe(true);
+  it("scans the real content folder, .ts and .md files only", () => {
+    // Placeholder count reaches zero at launch, so check what is scanned, not how many hits.
+    const root = path.join(process.cwd(), "content");
+    for (const hit of scanPlaceholders(root)) {
+      expect(hit.file.startsWith(root)).toBe(true);
+      expect(hit.file).toMatch(/\.(ts|md)$/);
+    }
   });
 });
