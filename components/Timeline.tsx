@@ -1,7 +1,6 @@
 import CommandLabel from "@/components/CommandLabel";
 import TimelineScroller from "@/components/TimelineScroller";
 import { projects } from "@/content/projects";
-import { site } from "@/content/site";
 import { pastRoles } from "@/content/timeline";
 import type { TimelineSpan, YearQuarter } from "@/content/types";
 
@@ -52,8 +51,8 @@ export default function Timeline() {
         <h2 id="tl-h" className="font-heading text-[34px] font-bold tracking-tight">
           Timeline
         </h2>
-        <span className="font-mono text-xs text-muted">
-          {site.timelineNote} <span aria-hidden="true">← scroll for earlier</span>
+        <span aria-hidden="true" className="font-mono text-xs text-muted">
+          ← scroll for earlier
         </span>
       </div>
       <TimelineScroller>

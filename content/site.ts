@@ -11,6 +11,5 @@ export const site: SiteInfo = {
   github: "https://github.com/yasshhc",
   resume: "/resume.pdf",
   year: 2026,
-  timelineNote: "[confirm dates]",
   specTotals: { written: "146", shipped: "57", accounts: "100+" },
 };

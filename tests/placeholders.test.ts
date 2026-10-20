@@ -38,7 +38,7 @@ describe("scanPlaceholders", () => {
   it("flags the placeholders that are still in the real content", () => {
     const hits = scanPlaceholders(path.join(process.cwd(), "content"));
     const found = hits.map((h) => h.placeholder);
-    expect(found).toContain("[confirm dates]");
+    expect(found).toContain("[N]");
     expect(hits.some((h) => h.file.endsWith("bill-splitter.md"))).toBe(true);
   });
 });

@@ -55,8 +55,8 @@ export const projects: Project[] = [
     stack: "Python, Claude API, Reddit data (PRAW, Arctic Shift)",
     links: {},
     timeline: {
-      start: { year: 2026, quarter: 2 },
-      end: { year: 2026, quarter: 2 },
+      start: { year: 2026, quarter: 1 },
+      end: { year: 2026, quarter: 1 },
       label: "built",
     },
     hasCaseStudy: false,

@@ -57,6 +57,16 @@ describe("case studies", () => {
   });
 });
 
+describe("CRS Calculator case study", () => {
+  it("has no placeholders left and uses the launch-post facts", () => {
+    const study = getCaseStudy("crs-calculator")!;
+    const text = study.tldr + study.body;
+    expect(text).not.toMatch(/\[[^\]]+\](?!\()/);
+    expect(text).toContain("132 automated tests");
+    expect(text).toMatch(/never leave your phone|never leave the phone/);
+  });
+});
+
 describe("parseCaseStudy", () => {
   const valid = [
     "---",

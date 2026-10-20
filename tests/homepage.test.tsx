@@ -51,8 +51,8 @@ describe("homepage", () => {
     expect(screen.getByTestId("timeline-grid").closest(".overflow-x-auto")).not.toBeNull();
   });
 
-  it("flags the timeline dates as unconfirmed", () => {
-    expect(region("Timeline").getByText("[confirm dates]")).toBeInTheDocument();
+  it("no longer flags the timeline dates as unconfirmed", () => {
+    expect(region("Timeline").queryByText(/confirm dates/)).toBeNull();
   });
 
   it("renders every release, newest first", () => {

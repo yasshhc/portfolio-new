@@ -53,6 +53,5 @@ export interface SiteInfo {
   github: string;
   resume: string;
   year: number;
-  timelineNote: string;
   specTotals: { written: string; shipped: string; accounts: string };
 }

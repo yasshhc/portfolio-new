@@ -38,6 +38,10 @@ describe("timeline", () => {
     expect(screen.queryByText("Coverage-nav")).toBeNull();
   });
 
+  it("shows Reddit Pain-Point Miner in Q1 2026", () => {
+    expect(screen.getByTestId("bar-reddit-pain-point-miner").style.gridColumn).toBe("9 / 10");
+  });
+
   it("places a single-quarter project in its own column", () => {
     expect(screen.getByTestId("bar-crs-calculator").style.gridColumn).toBe("12 / 13");
   });
