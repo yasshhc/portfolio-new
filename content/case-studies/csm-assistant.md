@@ -28,9 +28,9 @@ After each call I pasted the transcript into a chatbot. No memory per client, no
 
 ## Results
 
-- **[X min]** saved per client call
-- **[N]** churn risks flagged early
-- **[N]** pain points shared with product
+- **45 min** saved per client call
+- **5+** churn risks flagged early
+- **50+** pain points shared with product
 
 ## What I'd do next
 

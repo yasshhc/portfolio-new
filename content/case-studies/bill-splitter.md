@@ -34,7 +34,7 @@ Splitting a grocery receipt or a restaurant bill between several people is slow,
 - **Live** at billsplitter.yashchanne.com
 - **Passed** a full new-user run-through in light and dark mode
 - **About 1,040** free receipt scans a day across the Gemini models
-- **[N]** [users or bills split, if you have numbers]
+- **450+** [users or bills split?]
 
 ## What I'd do next
 
