@@ -12,8 +12,6 @@ const colors = {
   onDarkSoft: "#C9D5CF",
   onDarkSub: "#B5C3BC",
   onDarkHint: "#9FB0A8",
-  pausedText: "#7C2D12",
-  pausedBar: "#FFEDD5",
 };
 
 function luminance(hex: string): number {
@@ -42,7 +40,6 @@ describe("text contrast is at least 4.5:1", () => {
     ["green", "tile", "links on cards"],
     ["lime", "ink", "release hashes and kind tags"],
     ["white", "green", "live timeline bar"],
-    ["pausedText", "pausedBar", "paused timeline bar"],
     ["onDarkSoft", "ink", "summary on the dark next card"],
     ["onDarkSub", "ink", "jump menu sub text"],
     ["onDarkHint", "ink", "jump menu placeholder and shortcut chip"],

@@ -1,4 +1,4 @@
-export type Column = "shipped" | "paused" | "now" | "next";
+export type Column = "shipped" | "now" | "next";
 
 export type Quarter = 1 | 2 | 3 | 4;
 

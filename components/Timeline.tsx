@@ -25,7 +25,6 @@ function bars(): Bar[] {
     if (!p.timeline) return [];
     let className = "bg-lime text-ink";
     if (p.column === "now") className = "bg-ink text-bg";
-    else if (p.column === "paused") className = "bg-[#FFEDD5] text-[#7C2D12]";
     else if (p.status === "live") className = "bg-green text-white";
     return [{ slug: p.slug, title: p.title, timeline: p.timeline, className }];
   });

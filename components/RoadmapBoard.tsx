@@ -5,7 +5,6 @@ import { listCaseStudySlugs } from "@/lib/caseStudies";
 
 const columns: { name: Column; dot: string }[] = [
   { name: "shipped", dot: "bg-green" },
-  { name: "paused", dot: "bg-paused" },
   { name: "now", dot: "bg-ink" },
   { name: "next", dot: "bg-[#65A30D]" },
 ];

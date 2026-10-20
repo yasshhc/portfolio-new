@@ -20,11 +20,12 @@ describe("homepage", () => {
     }
   });
 
-  it("shows the four roadmap columns", () => {
+  it("shows the three roadmap columns", () => {
     const board = region("Roadmap");
-    for (const name of ["shipped", "paused", "now", "next"]) {
+    for (const name of ["shipped", "now", "next"]) {
       expect(board.getByRole("heading", { level: 3, name })).toBeInTheDocument();
     }
+    expect(board.queryByRole("heading", { level: 3, name: "paused" })).toBeNull();
   });
 
   it("links case-study cards to their pages and others elsewhere", () => {

@@ -24,6 +24,11 @@ export const projects: Project[] = [
     column: "shipped",
     stack: "Next.js, TypeScript, Tailwind CSS",
     links: { live: "https://billsplitter.yashchanne.com" },
+    timeline: {
+      start: { year: 2026, quarter: 1 },
+      end: { year: 2026, quarter: 1 },
+      label: "live",
+    },
     hasCaseStudy: true,
   },
   {
@@ -68,22 +73,6 @@ export const projects: Project[] = [
       start: { year: 2026, quarter: 3 },
       end: { year: 2026, quarter: 3 },
       label: "built",
-    },
-    hasCaseStudy: false,
-  },
-  {
-    slug: "coverage-nav",
-    title: "Coverage-nav",
-    summary:
-      "Built the useful foundation, then stopped while the build-or-not decision was open.",
-    status: "paused on purpose",
-    column: "paused",
-    stack: "[stack]",
-    links: {},
-    timeline: {
-      start: { year: 2026, quarter: 3 },
-      end: { year: 2026, quarter: 3 },
-      label: "paused",
     },
     hasCaseStudy: false,
   },

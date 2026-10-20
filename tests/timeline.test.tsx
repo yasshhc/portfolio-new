@@ -28,6 +28,16 @@ describe("timeline", () => {
     expect(screen.getByTestId("bar-customer-success-manager").style.gridColumn).toBe("7 / 13");
   });
 
+  it("shows Bill Splitter as live in Q1 2026", () => {
+    const bar = screen.getByTestId("bar-bill-splitter");
+    expect(bar.style.gridColumn).toBe("9 / 10");
+    expect(bar).toHaveTextContent("live");
+  });
+
+  it("does not show Coverage-nav", () => {
+    expect(screen.queryByText("Coverage-nav")).toBeNull();
+  });
+
   it("places a single-quarter project in its own column", () => {
     expect(screen.getByTestId("bar-crs-calculator").style.gridColumn).toBe("12 / 13");
   });

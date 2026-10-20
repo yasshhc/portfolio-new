@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { projects } from "@/content/projects";
+import { releases } from "@/content/releases";
 import { site } from "@/content/site";
 import { pastRoles } from "@/content/timeline";
 import type { Column } from "@/content/types";
@@ -19,7 +20,7 @@ describe("content model", () => {
   });
 
   it("every column has at least one card", () => {
-    const columns: Column[] = ["shipped", "paused", "now", "next"];
+    const columns: Column[] = ["shipped", "now", "next"];
     for (const column of columns) {
       expect(projects.some((p) => p.column === column)).toBe(true);
     }
@@ -49,6 +50,10 @@ describe("content model", () => {
     const description = layout.match(/description:\s*"([^"]+)"/s)?.[1] ?? "";
     expect(description).toMatch(/tickets/);
     expect(JSON.stringify([site, projects, description])).not.toMatch(/\bspecs?\b|specced/i);
+  });
+
+  it("Coverage-nav is not on the site anywhere", () => {
+    expect(JSON.stringify([projects, releases])).not.toMatch(/coverage/i);
   });
 
   it("copy never claims coding at work", () => {
