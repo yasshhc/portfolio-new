@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { act, fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { getCaseStudy } from "@/lib/caseStudies";
 import CaseStudyPage, {
@@ -76,5 +76,34 @@ describe("case-study markup", () => {
       await CaseStudyPage({ params: Promise.resolve({ slug: "crs-calculator" }) }),
     );
     expect(container.querySelectorAll("[node]")).toHaveLength(0);
+  });
+});
+
+// jsdom has no AnimationEvent, so React listens for the prefixed name instead.
+function finishFill(bar: HTMLElement) {
+  bar.firstChild!.dispatchEvent(new Event("webkitAnimationEnd", { bubbles: true }));
+}
+
+describe("screenshot carousel", () => {
+  it("starts on the first screenshot and moves on when its bar fills", async () => {
+    await renderStudy("bill-splitter");
+    const carousel = within(screen.getByRole("region", { name: "Screenshots" }));
+    expect(carousel.getByText("1 · Scan the receipt")).toBeInTheDocument();
+    act(() => finishFill(carousel.getByRole("button", { name: "Screenshot 1" })));
+    expect(carousel.getByText("2 · Check the items")).toBeInTheDocument();
+  });
+
+  it("jumps to a screenshot when its bar is clicked, and loops after the last", async () => {
+    await renderStudy("crs-calculator");
+    const carousel = within(screen.getByRole("region", { name: "Screenshots" }));
+    fireEvent.click(carousel.getByRole("button", { name: "Screenshot 4" }));
+    expect(carousel.getByText("4 · Biggest ways to raise it")).toBeInTheDocument();
+    act(() => finishFill(carousel.getByRole("button", { name: "Screenshot 4" })));
+    expect(carousel.getByText("1 · No sign-up, about 3 minutes")).toBeInTheDocument();
+  });
+
+  it("is left out of case studies without screenshots", async () => {
+    await renderStudy("csm-assistant");
+    expect(screen.queryByRole("region", { name: "Screenshots" })).toBeNull();
   });
 });

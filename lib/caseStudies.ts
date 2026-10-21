@@ -11,6 +11,7 @@ export interface CaseStudy {
   stack: string;
   links: { live?: string; github?: string };
   tldr: string;
+  screenshots: { src: string; caption: string }[];
   body: string;
 }
 
@@ -38,6 +39,7 @@ export function parseCaseStudy(slug: string, raw: string): CaseStudy {
     stack: data.stack,
     links: data.links ?? {},
     tldr: data.tldr,
+    screenshots: data.screenshots ?? [],
     body: content.trim(),
   };
 }

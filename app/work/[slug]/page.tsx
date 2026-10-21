@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown, { type ExtraProps } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CommandLabel from "@/components/CommandLabel";
+import ScreenshotCarousel from "@/components/ScreenshotCarousel";
 import { getAdjacent, getCaseStudy, listCaseStudySlugs } from "@/lib/caseStudies";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -64,6 +65,7 @@ export default async function CaseStudyPage({ params }: Params) {
   const prevStudy = prev ? getCaseStudy(prev) : null;
   const nextStudy = next ? getCaseStudy(next) : null;
   const linkClass = "text-green underline";
+  const hasShots = study.screenshots.length > 0;
 
   return (
     <div className="mx-auto max-w-[1120px] px-6 pb-16">
@@ -72,7 +74,11 @@ export default async function CaseStudyPage({ params }: Params) {
           ~/yash-channe
         </Link>
       </nav>
-      <main className="pt-8">
+      {/* With screenshots, wide screens get a second column for the phone; on narrow
+          screens it falls in place under the TL;DR. */}
+      <main
+        className={`pt-8 ${hasShots ? "wide:grid wide:grid-cols-[minmax(0,1fr)_340px] wide:gap-x-16" : ""}`}
+      >
         <header className="flex flex-col gap-5">
           <CommandLabel>{`open work/${slug}`}</CommandLabel>
           <h1 className="font-heading text-[clamp(40px,5.5vw,64px)] font-bold leading-[1.05] tracking-[-0.03em]">
@@ -100,7 +106,14 @@ export default async function CaseStudyPage({ params }: Params) {
           <p className="mb-2 font-mono text-sm font-bold">TL;DR</p>
           <p className="text-[19px] leading-relaxed">{study.tldr}</p>
         </aside>
-        <article className="mt-4">
+        {hasShots && (
+          <div className="mt-10 wide:col-start-2 wide:row-span-3 wide:row-start-1 wide:mt-0">
+            <div className="wide:sticky wide:top-6">
+              <ScreenshotCarousel shots={study.screenshots} />
+            </div>
+          </div>
+        )}
+        <article className="mt-4 wide:col-start-1">
           <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
             {study.body}
           </ReactMarkdown>

@@ -6,6 +6,15 @@ stack: "Next.js, TypeScript, Tailwind CSS"
 links:
   live: "https://crscal.yashchanne.com"
 tldr: "Canada’s Express Entry rules change on Nov 3, 2026. CRSCal shows your CRS score under today’s rules and from Nov 3 side by side, explains where every point comes from, and shows the biggest ways to raise it. No sign-up, and your answers never leave your phone."
+screenshots:
+  - src: "/work/crs-calculator/1.jpg"
+    caption: "No sign-up, about 3 minutes"
+  - src: "/work/crs-calculator/2.jpg"
+    caption: "Pick your job, see the bonus"
+  - src: "/work/crs-calculator/3.jpg"
+    caption: "Today vs. from Nov 3"
+  - src: "/work/crs-calculator/4.jpg"
+    caption: "Biggest ways to raise it"
 ---
 
 ## Problem

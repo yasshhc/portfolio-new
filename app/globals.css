@@ -8,6 +8,8 @@
   --color-lime: #d9f99d;
   --color-tile: #ffffff;
   --color-tile-alt: #e4ece6;
+  /* Case studies with screenshots switch to two columns from here. */
+  --breakpoint-wide: 60rem;
 }
 
 @theme inline {
@@ -25,6 +27,34 @@
       var(--quarters),
       max(72px, calc((100cqw - var(--name-width) - 48px) / var(--visible-quarters)))
     );
+}
+
+/* Case-study screenshots: the phone is sized from the window height so the bars, phone
+   and caption always fit on screen together (170px = bars + caption + sticky offset,
+   20px = the phone frame's padding). */
+.phone-shots {
+  width: min(300px, 80vw, calc((100vh - 170px) * 390 / 844 + 20px));
+  margin-inline: auto;
+}
+@media (min-width: 60rem) {
+  .phone-shots {
+    width: min(340px, calc((100vh - 170px) * 390 / 844 + 20px));
+  }
+}
+
+.story-fill {
+  animation: story-fill 3.5s linear forwards;
+}
+@keyframes story-fill {
+  to {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-fill {
+    animation: none;
+    width: 100%;
+  }
 }
 
 @layer base {

@@ -6,6 +6,15 @@ stack: "Next.js, TypeScript, Tailwind CSS, Gemini API"
 links:
   live: "https://billsplitter.yashchanne.com"
 tldr: "A phone-first web app for splitting a grocery receipt or a restaurant bill. Snap the receipt, fix any misread lines, tap who had what, and share everyone's total, with tax and tip spread fairly and every share adding up to the bill."
+screenshots:
+  - src: "/work/bill-splitter/1.jpg"
+    caption: "Scan the receipt"
+  - src: "/work/bill-splitter/2.jpg"
+    caption: "Check the items"
+  - src: "/work/bill-splitter/3.jpg"
+    caption: "Tap who had what"
+  - src: "/work/bill-splitter/4.jpg"
+    caption: "Everyone's share adds up"
 ---
 
 ## Problem
