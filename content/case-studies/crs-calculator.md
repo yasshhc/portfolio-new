@@ -44,7 +44,7 @@ The Express Entry rules change on Nov 3, 2026, when a Labour Market Integration 
 
 - **Live** at crscal.yashchanne.com
 - **132** automated tests run before every update
-- **[25,000]** visits since launch
+- **2,849** visitors and **33,880** page views in one week (Oct 16 to 23, 2026)
 - **551 vs 511:** the reference test profile scores 551 from Nov 3, 2026 and 511 today
 
 ## What I'd do next
