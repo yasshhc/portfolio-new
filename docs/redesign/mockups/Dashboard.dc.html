@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Product dashboard portfolio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0D0F12}
+a{color:#C8F25A}a:hover{color:#E2FF9A}
+</style>
+</helmet>
+<div style="font-family: 'Geist', system-ui, sans-serif; color: #E8EAED; background: #0D0F12; min-height: 100vh">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px 64px">
+
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0">
+      <a href="#top" style="font-family: 'Geist Mono', monospace; font-size: 15px; color: #E8EAED; text-decoration: none; display: flex; align-items: center; gap: 10px">
+        <span style="width: 10px; height: 10px; border-radius: 3px; background: #C8F25A; display: inline-block"></span>yash.channe
+      </a>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px">
+        <a href="#board" style="color: #E8EAED; text-decoration: none; padding: 10px 14px; border-radius: 8px; background: #161A20">Products</a>
+        <a href="#log" style="color: #E8EAED; text-decoration: none; padding: 10px 14px; border-radius: 8px">Changelog</a>
+        <a href="#contact" style="color: #0D0F12; background: #C8F25A; text-decoration: none; padding: 10px 14px; border-radius: 8px; font-weight: 600">Get in touch</a>
+      </div>
+    </nav>
+
+    <header id="top" style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 24px">
+      <div style="flex: 2 1 560px; background: #161A20; border: 1px solid #262B33; border-radius: 16px; padding: 48px; display: flex; flex-direction: column; gap: 20px">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #C8F25A">STATUS: open to PM / APM roles</span>
+        <h1 style="margin: 0; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em">Customer Success Manager who ships product.</h1>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B4BAC4; max-width: 56ch">I sit with municipal clients every week, log what hurts, and build the fix. Here's the product board.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <a href="#board" style="background: #E8EAED; color: #0D0F12; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600">View products</a>
+          <a href="#resume" style="border: 1px solid #3A414C; color: #E8EAED; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 500">Resume.pdf</a>
+        </div>
+      </div>
+      <div style="flex: 1 1 300px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+          <div style="background: #161A20; border: 1px solid #262B33; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; min-height: 120px">
+            <span style="font-size: 13px; color: #9AA1AC">{{k.label}}</span>
+            <span style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em">{{k.value}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </header>
+
+    <section id="board" aria-labelledby="board-h" style="padding-top: 64px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 20px">
+        <h2 id="board-h" style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Product board</h2>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #9AA1AC">5 products · 1 live · 1 paused by choice</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{projects}}" as="p" hint-placeholder-count="5">
+          <a href="#case" style="flex: 1 1 340px; background: #161A20; border: 1px solid #262B33; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #E8EAED; text-decoration: none">
+            <span style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+              <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #9AA1AC">{{p.id}}</span>
+              <span style="font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; color: {{p.pillText}}; background: {{p.pillBg}}">{{p.status}}</span>
+            </span>
+            <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.01em">{{p.title}}</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #B4BAC4">{{p.line}}</span>
+            <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #9AA1AC; border-top: 1px solid #262B33; padding-top: 14px">{{p.stack}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="log" aria-labelledby="log-h" style="padding-top: 64px; display: flex; flex-wrap: wrap; gap: 16px">
+      <div style="flex: 1 1 520px; background: #161A20; border: 1px solid #262B33; border-radius: 16px; padding: 32px">
+        <h2 id="log-h" style="margin: 0 0 24px; font-size: 22px; font-weight: 600">Changelog</h2>
+        <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px">
+          <sc-for list="{{log}}" as="l" hint-placeholder-count="4">
+            <li style="display: flex; gap: 20px">
+              <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #C8F25A; width: 72px; flex-shrink: 0">{{l.when}}</span>
+              <span style="font-size: 15px; line-height: 1.5; color: #D3D7DD">{{l.what}}</span>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+      <div style="flex: 1 1 340px; background: #161A20; border: 1px solid #262B33; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; font-size: 22px; font-weight: 600">Toolkit</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{tools}}" as="t" hint-placeholder-count="10">
+            <span style="font-size: 13px; padding: 6px 12px; border-radius: 8px; background: #1F242C; border: 1px solid #2E343E">{{t}}</span>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact" style="margin-top: 64px; background: #C8F25A; color: #0D0F12; border-radius: 16px; padding: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px">
+      <h2 style="margin: 0; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; letter-spacing: -0.02em; max-width: 18ch">Need a PM who's already talking to your customers?</h2>
+      <div id="resume" style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="mailto:you@example.com" style="background: #0D0F12; color: #E8EAED; padding: 14px 22px; border-radius: 10px; text-decoration: none; font-weight: 600">[your email]</a>
+        <a href="https://github.com/yasshhc" style="border: 1.5px solid #0D0F12; color: #0D0F12; padding: 14px 22px; border-radius: 10px; text-decoration: none; font-weight: 600">GitHub</a>
+        <a href="https://linkedin.com/in/" style="border: 1.5px solid #0D0F12; color: #0D0F12; padding: 14px 22px; border-radius: 10px; text-decoration: none; font-weight: 600">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var live = { pillText: '#0D0F12', pillBg: '#C8F25A' };
+    var use = { pillText: '#0D0F12', pillBg: '#7DD3FC' };
+    var tool = { pillText: '#E8EAED', pillBg: '#2E343E' };
+    var paused = { pillText: '#0D0F12', pillBg: '#FDBA74' };
+    return {
+      kpis: [
+        { label: 'Products built', value: '5' },
+        { label: 'Live in production', value: '1' },
+        { label: 'Client accounts', value: '[N]' },
+        { label: 'Years in CS', value: '[N]' }
+      ],
+      projects: [
+        Object.assign({ id: 'PRD-01', title: 'CSM Assistant', line: 'Call transcripts in; follow-ups, action items, pain points and churn signals out.', status: 'In daily use', stack: 'FastAPI · React · Claude API' }, use),
+        Object.assign({ id: 'PRD-02', title: 'CRS Calculator', line: 'Express Entry score estimator for today’s rules and the Nov 2026 changes.', status: 'Live', stack: 'Next.js · TypeScript' }, live),
+        Object.assign({ id: 'PRD-03', title: 'Reddit Pain-Point Miner', line: 'Ranks product opportunities from real complaints by frequency × confidence.', status: 'Discovery', stack: 'Python · Claude API' }, tool),
+        Object.assign({ id: 'PRD-04', title: 'Vitals', line: 'WHOOP-style recovery and strain from Apple Watch data, every formula visible.', status: 'Personal', stack: 'Python · Streamlit' }, tool),
+        Object.assign({ id: 'PRD-05', title: 'Coverage-nav', line: 'Routing for full street coverage. Paused while the build-or-not decision was open.', status: 'Paused by choice', stack: 'Python · graphs' }, paused)
+      ],
+      log: [
+        { when: '2026', what: 'Shipped CRS Calculator to crscal.yashchanne.com' },
+        { when: '2026', what: 'Scoped and paused Coverage-nav pending a product decision' },
+        { when: '2026', what: 'Built CSM Assistant for my own client calls' },
+        { when: '[year]', what: 'Started as Customer Success Manager, municipal SaaS' }
+      ],
+      tools: ['Discovery calls', 'Churn analysis', 'Roadmap input', 'SQL', 'Python', 'React', 'Claude API', 'Asana', 'JIRA', 'Tableau']
+    };
+  }
+}
+</script>
+</body>
+</html>

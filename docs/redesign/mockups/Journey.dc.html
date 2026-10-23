@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Journey timeline portfolio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F1F4EF}
+a{color:#2F6B4F}a:hover{color:#1F4A36}
+</style>
+</helmet>
+<div style="font-family: 'Work Sans', system-ui, sans-serif; color: #1B2421; background: #F1F4EF; min-height: 100vh">
+  <div style="max-width: 1080px; margin: 0 auto; padding: 0 24px">
+
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0">
+      <a href="#top" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #1B2421; text-decoration: none">Yash Channe</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 15px; font-weight: 500">
+        <a href="#loop" style="color: #1B2421; text-decoration: none">The loop</a>
+        <a href="#timeline" style="color: #1B2421; text-decoration: none">Work</a>
+        <a href="#contact" style="color: #1B2421; text-decoration: none">Contact</a>
+      </div>
+    </nav>
+
+    <header id="top" style="padding: 80px 0 56px; display: flex; flex-direction: column; gap: 24px; text-align: center; align-items: center">
+      <p style="margin: 0; font-size: 15px; font-weight: 600; color: #2F6B4F">Customer Success Manager · aspiring PM</p>
+      <h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(44px, 6.4vw, 84px); line-height: 1.02; letter-spacing: -0.03em; max-width: 16ch">From the customer call to the shipped fix.</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #44514C; max-width: 54ch">I've run the same loop five times now. Here's each step, and the product that came out of it.</p>
+    </header>
+
+    <section id="loop" aria-label="The loop" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; padding-bottom: 96px">
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+        <span style="display: flex; align-items: center; gap: 10px">
+          <span style="background: #FFFFFF; border: 1.5px solid #1B2421; border-radius: 999px; padding: 12px 22px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 17px">{{s.label}}</span>
+          <sc-if value="{{s.arrow}}" hint-placeholder-val="{{true}}">
+            <svg aria-hidden="true" width="28" height="12" viewBox="0 0 28 12" fill="none" stroke="#1B2421" stroke-width="1.5"><path d="M0 6h26M21 1l5 5-5 5"></path></svg>
+          </sc-if>
+        </span>
+      </sc-for>
+    </section>
+
+    <section id="timeline" aria-labelledby="tl-h" style="padding-bottom: 96px">
+      <h2 id="tl-h" style="margin: 0 0 48px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 40px; letter-spacing: -0.02em">The work, step by step</h2>
+      <ol style="list-style: none; margin: 0; padding: 0 0 0 32px; border-left: 2px solid #B9C8BF; display: flex; flex-direction: column; gap: 56px">
+        <sc-for list="{{entries}}" as="e" hint-placeholder-count="5">
+          <li style="position: relative; display: flex; flex-wrap: wrap; gap: 32px">
+            <span aria-hidden="true" style="position: absolute; left: -42px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: #2F6B4F; border: 3px solid #F1F4EF"></span>
+            <div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+              <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #2F6B4F">{{e.step}}</span>
+              <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1">{{e.title}}</span>
+              <span style="font-size: 14px; color: #5A6661">{{e.status}}</span>
+            </div>
+            <div style="flex: 2 1 420px; background: #FFFFFF; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+              <p style="margin: 0; font-size: 17px; line-height: 1.6"><strong>What I noticed:</strong> {{e.noticed}}</p>
+              <p style="margin: 0; font-size: 17px; line-height: 1.6"><strong>What I did:</strong> {{e.did}}</p>
+              <a href="#case" style="font-weight: 600; font-size: 15px">Read the full story →</a>
+            </div>
+          </li>
+        </sc-for>
+      </ol>
+    </section>
+
+    <footer id="contact" style="margin-bottom: 64px; background: #1B2421; color: #F1F4EF; border-radius: 24px; padding: clamp(32px, 6vw, 72px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 4.4vw, 56px); letter-spacing: -0.02em; max-width: 18ch">Next loop: your product.</h2>
+      <p style="margin: 0; font-size: 18px; color: #C9D4CE; max-width: 46ch">I'm looking for a Product Manager or APM role where customer insight drives the roadmap.</p>
+      <div id="resume" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+        <a href="mailto:you@example.com" style="background: #F1F4EF; color: #1B2421; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 600">[your email]</a>
+        <a href="#resume" style="border: 1.5px solid #F1F4EF; color: #F1F4EF; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 600">Resume</a>
+        <a href="https://github.com/yasshhc" style="border: 1.5px solid #F1F4EF; color: #F1F4EF; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 600">GitHub</a>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var labels = ['Listen', 'Notice', 'Decide', 'Build', 'Measure'];
+    return {
+      steps: labels.map(function (l, i) { return { label: l, arrow: i < labels.length - 1 }; }),
+      entries: [
+        { step: 'Listen', title: 'CSM Assistant', status: 'In daily use', noticed: 'Client calls held the best product insight, and it vanished into one-off notes.', did: 'Built a tool that turns every transcript into follow-ups, action items, pain points and churn signals.' },
+        { step: 'Notice', title: 'Reddit Pain-Point Miner', status: 'Discovery tool', noticed: 'People describe their problems in public, constantly, in their own words.', did: 'Mined and clustered complaints, ranking opportunities by frequency, confidence and willingness to pay.' },
+        { step: 'Decide', title: 'Coverage-nav', status: 'Paused on purpose', noticed: 'A similar internal project already existed, and the data we needed didn’t.', did: 'Built only what was useful either way, wrote up the open decision, and stopped.' },
+        { step: 'Build', title: 'CRS Calculator', status: 'Live at crscal.yashchanne.com', noticed: 'Express Entry rules were about to change, and nobody showed both scores side by side.', did: 'Shipped a tested scoring engine and site with ranked tips for gaining points.' },
+        { step: 'Measure', title: 'Vitals', status: 'Personal product', noticed: 'Health scores are black boxes, so you can’t trust or question them.', did: 'Rebuilt recovery and strain from Apple Watch data, with every formula and confidence level visible.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

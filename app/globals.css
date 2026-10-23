@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f1f4ef;
+  --color-ink: #1b2421;
+  --color-muted: #44514c;
+  --color-green: #2f6b4f;
+  --color-lime: #d9f99d;
+  --color-tile: #ffffff;
+  --color-tile-alt: #e4ece6;
+  /* Case studies with screenshots switch to two columns from here. */
+  --breakpoint-wide: 60rem;
+}
+
+@theme inline {
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+/* Timeline: a pinned name column, then one column per quarter, sized so that
+   --visible-quarters of them fill the scroll box (48px = the grid's right padding + gap). */
+.timeline-grid {
+  grid-template-columns:
+    var(--name-width)
+    repeat(
+      var(--quarters),
+      max(72px, calc((100cqw - var(--name-width) - 48px) / var(--visible-quarters)))
+    );
+}
+
+/* Case-study screenshots: the phone is sized from the window height so the bars, phone
+   and caption always fit on screen together (170px = bars + caption + sticky offset,
+   20px = the phone frame's padding). */
+.phone-shots {
+  width: min(300px, 80vw, calc((100vh - 170px) * 390 / 844 + 20px));
+  margin-inline: auto;
+}
+@media (min-width: 60rem) {
+  .phone-shots {
+    width: min(340px, calc((100vh - 170px) * 390 / 844 + 20px));
+  }
+}
+
+.story-fill {
+  animation: story-fill 3.5s linear forwards;
+}
+@keyframes story-fill {
+  to {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-fill {
+    animation: none;
+    width: 100%;
+  }
+}
+
+@layer base {
+  :focus-visible {
+    outline: 3px solid var(--color-green);
+    outline-offset: 2px;
+  }
+}

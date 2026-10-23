@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Editorial portfolio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#FAFAF7}
+a{color:#1D4ED8}a:hover{color:#1E3A8A}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', system-ui, sans-serif; color: #16161A; background: #FAFAF7; min-height: 100vh">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 0 24px">
+
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0; border-bottom: 1px solid #DCDCD6">
+      <a href="#top" style="font-family: 'Instrument Serif', serif; font-size: 26px; color: #16161A; text-decoration: none">Yash Channe</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px">
+        <a href="#work" style="color: #16161A; text-decoration: none">Work</a>
+        <a href="#about" style="color: #16161A; text-decoration: none">About</a>
+        <a href="#resume" style="color: #16161A; text-decoration: none">Resume</a>
+        <a href="#contact" style="color: #16161A; text-decoration: none">Contact</a>
+      </div>
+    </nav>
+
+    <header id="top" style="padding: 112px 0 96px; display: flex; flex-direction: column; gap: 28px">
+      <p style="margin: 0; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #55565E">Customer Success Manager → Product</p>
+      <h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(48px, 7vw, 96px); line-height: 1.02; max-width: 15ch">I find the customer pain, then I <em>ship the fix</em>.</h1>
+      <p style="margin: 0; font-size: 20px; line-height: 1.6; color: #3A3B42; max-width: 60ch">I'm a Customer Success Manager working with municipal clients. On the side, I build the tools I wish existed: five so far, one of them live. I'm looking for my first Product Manager or APM role.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 8px">
+        <a href="#work" style="background: #16161A; color: #FAFAF7; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 500">Read the case studies</a>
+        <a href="#resume" style="border: 1px solid #16161A; color: #16161A; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 500">Download resume</a>
+      </div>
+    </header>
+
+    <section id="work" aria-labelledby="work-h" style="padding: 48px 0">
+      <h2 id="work-h" style="margin: 0 0 8px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 44px">Selected work</h2>
+      <p style="margin: 0 0 32px; color: #55565E; font-size: 17px">Each one started with a problem I saw firsthand.</p>
+      <sc-for list="{{projects}}" as="p" hint-placeholder-count="5">
+        <a href="#case" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: baseline; padding: 28px 0; border-top: 1px solid #DCDCD6; color: #16161A; text-decoration: none">
+          <span style="font-family: 'Instrument Serif', serif; font-size: 22px; color: #55565E; width: 40px">{{p.num}}</span>
+          <span style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-family: 'Instrument Serif', serif; font-size: 34px; line-height: 1.1">{{p.title}}</span>
+            <span style="font-size: 17px; line-height: 1.55; color: #3A3B42">{{p.line}}</span>
+          </span>
+          <span style="flex: 0 1 220px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: #55565E">
+            <span style="color: #1D4ED8; font-weight: 500">{{p.status}}</span>
+            <span>{{p.stack}}</span>
+          </span>
+        </a>
+      </sc-for>
+    </section>
+
+    <section id="case" aria-labelledby="case-h" style="margin: 48px 0; padding: 56px 48px; background: #FFFFFF; border: 1px solid #DCDCD6; border-radius: 4px">
+      <p style="margin: 0 0 12px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #55565E">Featured case study</p>
+      <h2 id="case-h" style="margin: 0 0 40px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.05; max-width: 20ch">CSM Assistant: from copy-pasting transcripts to a churn radar</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px">
+        <div style="flex: 1 1 240px">
+          <h3 style="margin: 0 0 8px; font-size: 15px; font-weight: 600">Problem</h3>
+          <p style="margin: 0; line-height: 1.6; color: #3A3B42">After every client call I pasted the transcript into ChatGPT. No memory per client, and no way to see patterns across accounts.</p>
+        </div>
+        <div style="flex: 1 1 240px">
+          <h3 style="margin: 0 0 8px; font-size: 15px; font-weight: 600">Insight</h3>
+          <p style="margin: 0; line-height: 1.6; color: #3A3B42">The valuable output wasn't the email. It was pain points and churn signals, compared across every client.</p>
+        </div>
+        <div style="flex: 1 1 240px">
+          <h3 style="margin: 0 0 8px; font-size: 15px; font-weight: 600">What I built</h3>
+          <p style="margin: 0; line-height: 1.6; color: #3A3B42">Fathom sync, two AI passes per meeting, a task list per client, and a cross-client dashboard of pain points and churn signals.</p>
+        </div>
+        <div style="flex: 1 1 240px">
+          <h3 style="margin: 0 0 8px; font-size: 15px; font-weight: 600">Outcome</h3>
+          <p style="margin: 0; line-height: 1.6; color: #3A3B42">[Time saved per call] · [churn risks caught early] · [feature requests sent to product]</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-h" style="padding: 64px 0; display: flex; flex-wrap: wrap; gap: 56px">
+      <div style="flex: 1 1 420px">
+        <h2 id="about-h" style="margin: 0 0 20px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 44px">About</h2>
+        <p style="margin: 0 0 16px; font-size: 18px; line-height: 1.65; color: #3A3B42">I spend my days on calls with city staff who use our product. I hear what's broken before anyone files a ticket.</p>
+        <p style="margin: 0; font-size: 18px; line-height: 1.65; color: #3A3B42">Product management is the job I've been doing at the edges: turning those conversations into problems worth solving, and deciding what not to build.</p>
+      </div>
+      <div style="flex: 1 1 320px">
+        <h3 style="margin: 0 0 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #55565E">How I work</h3>
+        <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.5">
+          <li>Start from a real customer quote</li>
+          <li>Ship the smallest useful version</li>
+          <li>Write down what I'm not building, and why</li>
+          <li>Test against real data, not demos</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer id="contact" style="padding: 80px 0 64px; border-top: 1px solid #DCDCD6; display: flex; flex-direction: column; gap: 20px">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(40px, 5vw, 64px)">Hiring a PM? Let's talk.</h2>
+      <div id="resume" style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 17px">
+        <a href="mailto:you@example.com">[your email]</a>
+        <a href="https://github.com/yasshhc">GitHub</a>
+        <a href="https://linkedin.com/in/">[LinkedIn]</a>
+        <a href="#resume">Resume (PDF)</a>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      projects: [
+        { num: '01', title: 'CSM Assistant', line: 'Turns client call transcripts into follow-ups, action items, pain points and churn signals.', status: 'Built for my own job', stack: 'FastAPI · React · Claude API' },
+        { num: '02', title: 'CRS Calculator', line: 'Estimates Canada Express Entry scores under today’s rules and the Nov 2026 changes, with ranked tips.', status: 'Live · crscal.yashchanne.com', stack: 'Next.js · TypeScript · tested engine' },
+        { num: '03', title: 'Reddit Pain-Point Miner', line: 'Mines Reddit complaints and ranks product opportunities by frequency, confidence and willingness to pay.', status: 'Discovery tool', stack: 'Python · Claude API' },
+        { num: '04', title: 'Vitals', line: 'WHOOP-style recovery, strain and sleep scores from Apple Watch data, with every formula visible.', status: 'Personal product · 73 tests', stack: 'Python · Streamlit' },
+        { num: '05', title: 'Coverage-nav', line: 'Street-coverage routing for municipal crews. Paused on purpose while a product decision was open.', status: 'Paused deliberately', stack: 'Python · graph algorithms' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
