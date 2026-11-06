@@ -112,7 +112,11 @@ export default function JumpMenu({ navigate = goTo }: { navigate?: (href: string
                 <span className="flex items-center gap-3">
                   <span className="font-mono text-xs text-lime">{item.kind}</span>
                   {index === active && (
-                    <kbd aria-hidden="true" data-testid="jump-enter" className={keyClass}>
+                    <kbd
+                      aria-hidden="true"
+                      data-testid="jump-enter"
+                      className={`hidden sm:block ${keyClass}`}
+                    >
                       ↵
                     </kbd>
                   )}
