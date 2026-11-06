@@ -8,7 +8,7 @@ export const pastRoles: TimelineEntry[] = [
     timeline: {
       start: { year: 2024, quarter: 2 },
       end: { year: 2025, quarter: 3 },
-      label: "Jun 2024 – Sep 2025",
+      label: "Jun 2024 – Aug 2025",
     },
   },
 ];

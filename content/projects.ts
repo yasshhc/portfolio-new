@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     slug: "crs-calculator",
     title: "CRS Calculator",
-    summary: "Express Entry scores, today’s rules vs Nov 2026.",
+    summary: "Express Entry scores under the Nov 2026 rules, every point explained.",
     status: "live",
     column: "shipped",
     stack: "Next.js, TypeScript, Tailwind CSS",
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     links: { live: "https://billsplitter.yashchanne.com" },
     timeline: {
       start: { year: 2026, quarter: 1 },
-      end: { year: 2026, quarter: 1 },
+      end: { year: 2026, quarter: 4 },
       label: "live",
     },
     hasCaseStudy: true,
@@ -41,8 +41,8 @@ export const projects: Project[] = [
     links: {},
     timeline: {
       start: { year: 2026, quarter: 1 },
-      end: { year: 2026, quarter: 1 },
-      label: "built",
+      end: { year: 2026, quarter: 4 },
+      label: "in daily use",
     },
     hasCaseStudy: true,
   },
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     links: {},
     timeline: {
       start: { year: 2026, quarter: 1 },
-      end: { year: 2026, quarter: 1 },
+      end: { year: 2026, quarter: 2 },
       label: "built",
     },
     hasCaseStudy: false,

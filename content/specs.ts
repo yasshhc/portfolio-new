@@ -13,7 +13,7 @@ export const specs: SpecEntry[] = [
   {
     problem:
       "The new AI search matched street names letter for letter, so “main st” missed “Main St” and quietly returned incomplete answers.",
-    spec: "Found while testing the AI search with 19 plain-English queries; reported it and suggested case-insensitive matching.",
+    spec: "Found while testing the AI search with 20 plain-English queries; reported it and suggested case-insensitive matching.",
     shipped: "Q2 2026",
   },
   {

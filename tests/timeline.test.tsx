@@ -28,9 +28,9 @@ describe("timeline", () => {
     expect(screen.getByTestId("bar-customer-success-manager").style.gridColumn).toBe("7 / 13");
   });
 
-  it("shows Bill Splitter as live in Q1 2026", () => {
+  it("shows Bill Splitter as live from Q1 to Q4 2026", () => {
     const bar = screen.getByTestId("bar-bill-splitter");
-    expect(bar.style.gridColumn).toBe("9 / 10");
+    expect(bar.style.gridColumn).toBe("9 / 13");
     expect(bar).toHaveTextContent("live");
   });
 
@@ -38,8 +38,8 @@ describe("timeline", () => {
     expect(screen.queryByText("Coverage-nav")).toBeNull();
   });
 
-  it("shows Reddit Pain-Point Miner in Q1 2026", () => {
-    expect(screen.getByTestId("bar-reddit-pain-point-miner").style.gridColumn).toBe("9 / 10");
+  it("shows Reddit Pain-Point Miner from Q1 to Q2 2026", () => {
+    expect(screen.getByTestId("bar-reddit-pain-point-miner").style.gridColumn).toBe("9 / 11");
   });
 
   it("places a single-quarter project in its own column", () => {
