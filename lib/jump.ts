@@ -47,3 +47,27 @@ export function filterJumpItems(items: JumpItem[], query: string): JumpItem[] {
   if (!q) return items;
   return items.filter((i) => `${i.title} ${i.sub}`.toLowerCase().includes(q));
 }
+
+export interface JumpGroup {
+  label: string;
+  items: { item: JumpItem; index: number }[];
+}
+
+const groupLabels: Record<JumpItem["kind"], string> = {
+  "case study": "Case studies",
+  live: "Live products",
+  file: "Resume and contact",
+  contact: "Resume and contact",
+};
+
+// `index` is the row's place in `results`, which is what the arrow keys move through.
+export function groupJumpItems(results: JumpItem[], searching: boolean): JumpGroup[] {
+  const groups: JumpGroup[] = [];
+  results.forEach((item, index) => {
+    const label = searching ? "Results" : groupLabels[item.kind];
+    const group = groups.find((g) => g.label === label);
+    if (group) group.items.push({ item, index });
+    else groups.push({ label, items: [{ item, index }] });
+  });
+  return groups;
+}

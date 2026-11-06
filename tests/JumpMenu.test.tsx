@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import JumpMenu from "@/components/JumpMenu";
@@ -65,6 +65,24 @@ describe("JumpMenu", () => {
     expect(input).toHaveAttribute("aria-expanded", "false");
     await user.keyboard("{Escape}");
     expect(input).toHaveAttribute("aria-expanded", "true");
+  });
+
+  it("groups targets, then shows one Results group while searching", async () => {
+    const { user, input } = setup();
+    const groups = () => screen.getAllByRole("group").map((g) => g.getAttribute("aria-label"));
+    expect(groups()).toEqual(["Case studies", "Live products", "Resume and contact"]);
+    await user.type(input, "crs");
+    expect(groups()).toEqual(["Results"]);
+  });
+
+  it("shows the return-key hint only on the active row, and follows the mouse", async () => {
+    const { user } = setup();
+    const options = screen.getAllByRole("option");
+    expect(within(options[0]).getByTestId("jump-enter")).toBeInTheDocument();
+    expect(within(options[2]).queryByTestId("jump-enter")).toBeNull();
+    await user.hover(options[2]);
+    expect(options[2]).toHaveAttribute("aria-selected", "true");
+    expect(within(options[2]).getByTestId("jump-enter")).toBeInTheDocument();
   });
 
   it("lists every target as a normal link", () => {
