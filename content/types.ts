@@ -35,6 +35,8 @@ export interface Project {
 export interface Release {
   version: string;
   message: string;
+  href?: string;
+  preview?: string;
 }
 
 export interface SpecEntry {
