@@ -1,4 +1,5 @@
 import CommandLabel from "@/components/CommandLabel";
+import CountUp from "@/components/CountUp";
 import { site } from "@/content/site";
 import { specs } from "@/content/specs";
 
@@ -26,7 +27,9 @@ export default function ShippedSpecs() {
             key={t.label}
             className="flex flex-[1_1_200px] flex-col gap-2 rounded-[18px] bg-tile p-6"
           >
-            <span className="font-heading text-[40px] font-bold leading-none">{t.value}</span>
+            <span className="font-heading text-[40px] font-bold leading-none">
+              <CountUp value={t.value} />
+            </span>
             <span className="text-sm text-muted">{t.label}</span>
           </div>
         ))}

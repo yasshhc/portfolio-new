@@ -5,25 +5,25 @@ role: "PM + builder"
 stack: "Next.js, TypeScript, Tailwind CSS"
 links:
   live: "https://crscal.yashchanne.com"
-tldr: "Canada’s Express Entry rules change on Nov 3, 2026. CRSCal shows your CRS score under today’s rules and from Nov 3 side by side, explains where every point comes from, and shows the biggest ways to raise it. No sign-up, and your answers never leave your phone."
+tldr: "Canada’s Express Entry rules changed on Nov 3, 2026. CRSCal launched before the change to compare the old and new scores side by side. Now it shows your CRS score under the new rules, explains where every point comes from, and shows the biggest ways to raise it. No sign-up, and your answers never leave your phone."
 screenshots:
   - src: "/work/crs-calculator/1.jpg"
     caption: "No sign-up, about 3 minutes"
   - src: "/work/crs-calculator/2.jpg"
     caption: "Pick your job, see the bonus"
   - src: "/work/crs-calculator/3.jpg"
-    caption: "Today vs. from Nov 3"
+    caption: "Your score, every point explained"
   - src: "/work/crs-calculator/4.jpg"
     caption: "Biggest ways to raise it"
 ---
 
 ## Problem
 
-The Express Entry rules change on Nov 3, 2026, when a Labour Market Integration factor adds a high-wage work bonus and new job offer points. For many people in the pool, their score is about to move. I wanted to know exactly how mine would change, and I couldn’t find a simple way to see both numbers side by side, so I built one.
+The Express Entry rules changed on Nov 3, 2026, when a Labour Market Integration factor added a high-wage work bonus and new job offer points. For many people in the pool, their score was about to move. I wanted to know exactly how mine would change, and I couldn’t find a simple way to see both numbers side by side, so I built one before the rules took effect.
 
 ## Users and jobs to be done
 
-- **Express Entry candidate:** see my estimated score today and from Nov 3, 2026, side by side.
+- **Express Entry candidate:** see my estimated score under the rules in force since Nov 3, 2026. Before that date, the site compared old and new scores side by side.
 - **Candidate with a skilled job:** check whether my job qualifies for the new high-wage bonus (up to +70), by searching my job title or NOC code.
 - **Candidate planning next steps:** see where every point comes from, and which changes would raise my score most, with “what if” sliders.
 
@@ -31,7 +31,7 @@ The Express Entry rules change on Nov 3, 2026, when a Labour Market Integration 
 
 | Decision | Why |
 |---|---|
-| Two rule sets, scored side by side | The rules change on Nov 3, 2026, so the same profile has two valid scores. |
+| Two rule sets, scored side by side before Nov 3, 2026 | Until the rules changed, the same profile had two valid scores. Since Nov 3 the site shows the score under the rules in force, with a link to IRCC’s page on what changed. |
 | Rules only from official sources | IRCC’s official pages, the official high-wage occupation list and Statistics Canada’s NOC 2021 list, so every number can be traced. |
 | Scoring engine built and tested before the website | 132 automated tests check the scoring before every update goes live; the site imports the tested engine. |
 | Tips come from re-running the engine | Each point gain is computed, not hand-written, so tips cannot drift from the scoring rules. |
@@ -44,8 +44,8 @@ The Express Entry rules change on Nov 3, 2026, when a Labour Market Integration 
 
 - **Live** at crscal.yashchanne.com
 - **132** automated tests run before every update
-- **2,849** visitors and **33,880** page views in one week (Oct 16 to 23, 2026)
-- **551 vs 511:** the reference test profile scores 551 from Nov 3, 2026 and 511 today
+- **3,809** visitors and **43,248** page views in 30 days (Oct to Nov 2026), with a 25% bounce rate
+- **551 vs 511:** the reference test profile scores 551 under the new rules and scored 511 under the old ones
 
 ## What I'd do next
 
